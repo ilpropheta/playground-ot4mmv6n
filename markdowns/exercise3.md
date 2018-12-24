@@ -193,14 +193,16 @@ You have a pending refactoring. It's time to get back and finish your work:
 	],
 	"command": "sh /project/target/run_test.sh ver4 [binding]"})
 
-A very important client of our company is asking a new feature: she wants to sort shortened urls in some way. Can you implement a simple `operator<` for this purpose? 
+A very important client of our company is asking a new feature: she wants to sort shortened urls in some way. Can you implement a simple `operator<` for this purpose? Instead of specs, she provided a test:
 
-@[operator< made easy with std::tie]({"stubs": [
+@[Implement client's operator<]({"stubs": [
 	"microurl/src/ver4/tests/UrlInfoCompareTest.cpp",
 	"microurl/src/ver4/MicroUrlInfo.h",
 	],
 	"command": "sh /project/target/run_test.sh ver4 [less]"})
-	
+
+
+
 ::: Do you really give up? :(
 
 Using structure bindings on `UrlInfoTest.cpp`:
@@ -212,17 +214,23 @@ REQUIRE (micro == microUrl);
 REQUIRE (initStat == 0);
 ```
 
-Here is how to implement `operator<` by leveraging `std::tie`:
+The client wants an `operator<` which is just a lexicographical comparison with the following order:
+
+1. `OriginalUrl`
+2. `Clicks`
+3. `MicroUrl`
+
+We could use the `tie` idiom:
 
 ```cpp
-inline auto AsTuple(const UrlInfo& info)
+inline auto AsClientTuple(const UrlInfo& info)
 {
-	return std::tie(info.OriginalUrl, info.MicroUrl, info.Clicks);
+	return std::tie(info.OriginalUrl, info.Clicks, info.MicroUrl);
 }
 
 inline bool operator<(const UrlInfo& left, const UrlInfo& right)
 {
-	return AsTuple(left) < AsTuple(right);
+	return AsClientTuple(left) < AsClientTuple(right);
 }
 ```
 :::
