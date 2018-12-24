@@ -1,12 +1,12 @@
-# WIP
+# The best C++ programmer can adapt on any style
 
 ## Welcome!
 
-Welcome to my workshop "WIP", hosted by [tech.io](https://tech.io)!
+Welcome to my workshop "The best C++ programmer can adapt on any style", hosted by [tech.io](https://tech.io)!
 
 This playground is an interactive environment where you can face with challenges directly on your browser.
 
-This workshop is an evolution of my [previous one](https://tech.io/playgrounds/098a2aa83ce82c5ad96efacc3ba2734b02122/). I removed the last section and I improved the others thanks to some feedback I got.
+This workshop is an improvement version of my [previous one](https://tech.io/playgrounds/098a2aa83ce82c5ad96efacc3ba2734b02122/).
 
 ## Introduction
 
@@ -16,13 +16,11 @@ Bruce Lee was used to say:
 
 > The best fighter is not a Boxer, Karate or Judo man. The best fighter is someone who can adapt on any style.
 
-Bruce Lee was a great philosopher - although the masses know him only for movies and martial art - and his own vision of life was deeply influenced by Taoism, Zen and Stoicism - just to mention a few. 
-
 C++ implements this idea very well, since it's independent from any particular programming paradigm or practice.
 
 After the revolution brought by C++11, other paradigms - like functional - became a bit simpler with C++11, and then people have started mixing styles more often than before.
 
-Post-modern C++ programmers should master idioms from different paradigms and styles, and use them conveniently. 
+In my opinion, the next generations of C++ programmers should master idioms and constructs coming from different paradigms and styles, and use them conveniently.
 
 ## Playground structure
 

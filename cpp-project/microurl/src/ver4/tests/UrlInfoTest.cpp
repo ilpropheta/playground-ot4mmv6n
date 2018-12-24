@@ -8,15 +8,13 @@ TEST_CASE("Checking stats", "Let's use structure bindings [binding]")
 	const auto urlToShorten = "http://italiancpp.org/win100million.believeme";
 	MicroUrlService service;
 	auto microUrl = service.MakeMicroUrl(urlToShorten);
-		
-	// ... 
-	//REQUIRE (original == urlToShorten);
-	//REQUIRE (micro == microUrl);
-	//REQUIRE (clicks == 0);
-			
-	//REQUIRE (original == service.ClickUrl(microUrl.c_str()));
-	//REQUIRE (original == service.ClickUrl(microUrl.c_str()));
 	
-	// ...
-	// REQUIRE (clicks == 2);
+	auto urlInfo = service.Stats(microUrl);
+	auto& original = urlInfo.OriginalUrl;
+	auto& micro = urlInfo.MicroUrl;
+	auto& clicks = urlInfo.Clicks;
+	
+	REQUIRE (original == urlToShorten);
+	REQUIRE (micro == microUrl);
+	REQUIRE (clicks == 0);
 }

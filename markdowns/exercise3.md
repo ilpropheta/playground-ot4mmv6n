@@ -1,6 +1,22 @@
-# Generic Programming
+# Generic Programming and tuples
 
-## Algebraic Data Types
+**Generic Programming** is a style of programming in which functionalities and components are developed in terms of types that will be known at a later time - when they will be instantiated.
+
+In C++, Generic Programming is supported with **templates**, which are a powerful mechanism to generate code and take decisions at compile-time:
+
+```cpp
+template<typename T>
+T sum(T a, T b)
+{
+	return a + b;
+}
+```
+
+`sum` works on *any type* supporting `operator+`.
+
+In C++ templates are extensively used across the entire standard library.
+
+## Tuples
 
 An **algebraic data type** is a data type defined out of a combination of two constructions: **products** and **sums**. Thus, you can think of an *ADT* as a composite type, formed by combining other types.
 
@@ -112,6 +128,7 @@ assert(&z == &a);                    // passes
 
 Continue Reading:
 
+- [Generic Programming](http://stepanovpapers.com/genprog.pdf)
 - [Reference](http://en.cppreference.com/w/cpp/language/structured_binding)
 - [Adding C++17 structured bindings support to your classes](https://blog.tartanllama.xyz/structured-bindings/)
 
@@ -189,23 +206,11 @@ A very important client of our company is asking a new feature: she wants to sor
 Using structure bindings on `UrlInfoTest.cpp`:
 
 ```cpp
-{
-	auto[original, micro, clicks] = service.Stats(microUrl.c_str());
-	REQUIRE (original == urlToShorten);
-	REQUIRE (micro == microUrl);
-	REQUIRE (initStat == 0);
-		
-	REQUIRE (original == service.ClickUrl(microUrl.c_str()));
-	REQUIRE (original == service.ClickUrl(microUrl.c_str()));
-}
-{
-	auto[original, micro, clicks] = service.Stats(microUrl.c_str());
-	auto[original, micro, clicks] = service.Stats(microUrl.c_str());
-	REQUIRE (clicks == 2);
-}
+auto[original, micro, clicks] = service.Stats(microUrl.c_str());
+REQUIRE (original == urlToShorten);
+REQUIRE (micro == microUrl);
+REQUIRE (initStat == 0);
 ```
-
-It's a pity we cannot just `std::ignore` a field, isn't it?
 
 Here is how to implement `operator<` by leveraging `std::tie`:
 

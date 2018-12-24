@@ -271,5 +271,3 @@ std::optional<UrlInfo> MicroUrlService::Stats(std::string_view microUrl) const
 Although you can justly think that the pipeline is more useful when each step may fail (e.g. in `ClickUrl` the steps after `TryLookup` never fail), we defend this approach because the composability is very high. For example, we may decide not to increment the number of clicks or to add another step afterwards. These decisions will fit the pipeline just by adding or removing callable blocks.
 
 Similarly, if add extra verification steps such as *expiration* or *access control* (e.g. private stats), they will map naturally as new pipeline blocks.
-
-:::

@@ -4,7 +4,7 @@
 
 *Bruce Lee* about his experience with strings in C++.
 
-(joke inspired by the famous "3 stages of cultivation" of Bruce Lee - coming from Zen philosphy).
+(joke inspired by Bruce Lee's "Three stages of cultivation").
 
 ## `std::string_view` in a nutshell
 
@@ -50,19 +50,13 @@ Work on `MicroUrlService` and uniform the parameters of its public functions. De
 	 "microurl/src/ver5/MicroUrlService.h",
 	 "microurl/src/ver5/MicroUrlService.cpp",
 	 "microurl/src/ver5/tests/StringViewTest.cpp",
+	 "microurl/src/ver5/tests/SubtleTest.cpp",
 	],
 	"command": "sh /project/target/run_test.sh ver5 [stringview]"})
 
 ### On blindly replacing `const string&` with `string_view`
 
-Why it fails?
-
-@[Let's see if turning all const string& into string_view is always a good idea]({"stubs": [
-	 "microurl/src/ver5/MicroUrlService.h",
-	 "microurl/src/ver5/MicroUrlService.cpp",
-	 "microurl/src/ver5/tests/SubtleTest.cpp",
-	],
-	"command": "sh /project/target/run_test.sh ver5 [subtle]"})
+Why did `SubtleTest.cpp` fail?
 
 In general [this guideline](https://abseil.io/tips/1) is insightful:
 	
