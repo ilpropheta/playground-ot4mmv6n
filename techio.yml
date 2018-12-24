@@ -1,4 +1,25 @@
-title: Custom Template
+title: The Tao of C++
 plan:
-- title: Welcome
-  statement: markdowns/welcome.md
+- title: Welcome!
+  statement: markdowns/welcome.md  
+- title: Don't give your house keys to those pointers!
+  statement: markdowns/exercise1.md
+- title: Use Interfaces, Luke!
+  statement: markdowns/exercise2.md
+- title: Structure binding and tuple tricks
+  statement: markdowns/exercise3.md
+- title: std::string, const char*, QString, CString... oh my!
+  statement: markdowns/exercise4.md
+- title: A functional touch
+  statement: markdowns/exercise5.md
+- title: Handling errors
+  statement: markdowns/exercise6.md
+- title: Wrap up
+  statement: markdowns/exercise7.md
+  
+projects:
+  cpp:
+    root: /cpp-project
+    runner:
+      name: techio/cmake-gcc-runner
+      version: latest
