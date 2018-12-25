@@ -1,8 +1,8 @@
-title: The Tao of C++
+title: The best C++ programmer can adapt on any style
 plan:
 - title: Welcome!
   statement: markdowns/welcome.md  
-- title: Don't give your house keys to those pointers!
+- title: Lifetime patterns
   statement: markdowns/exercise1.md
 - title: Use Interfaces, Luke!
   statement: markdowns/exercise2.md

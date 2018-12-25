@@ -22,6 +22,8 @@ After the revolution brought by C++11, other paradigms - like functional - becam
 
 In my opinion, the next generations of C++ programmers should master idioms and constructs coming from different paradigms and styles, and use them conveniently.
 
+In this workshop we'll meet some important styles and idioms of C++ programming.
+
 ## Playground structure
 
 Everything is self-contained and embedded in this **playground**. Under the hood, this environment is generated from this [github repo](https://github.com/ilpropheta/playground-ot4mmv6n).

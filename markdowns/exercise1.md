@@ -1,34 +1,80 @@
-# Don't give your house keys to those pointers!
+# Lifetime patterns
 
-Pointers are cheap but at the same time very unclear. Could you unmistakably figure out what `p` is here?
+By default, C++ objects have **automatic** lifetime, that is, they are destructed and deallocated automatically when they go out of scope - even though an exception is thrown:
+
+```cpp
+{
+	int i;
+	cin >> i;
+	// ... exceptions possible ...
+} // i deallocated here
+
+{
+	Foo foo; // constructor
+	// ... exceptions possible ...
+} // foo destructed and deallocated here
+```
+
+On the other hand, other kind of semantics need explicit syntax:
+
+```cpp
+int i = 10;
+int& iref = i; // reference semantics
+
+auto i = new int[10]{}; // dynamic buffer
+
+delete [] i;
+```
+
+Since dynamic lifetime does not obey to automatic lifetime rules, ownership is more cumbersome and error-prone. In practical terms, in C++ we give ownership of any *heap-allocated* resource to a *stack-allocated* object whose destructor contains the code to delete or free the resource and also any associated cleanup code. This way we turn dynamic lifetime into automatic lifetime, more or less.
+
+This simple rule is a fundamental C++ lifetime idiom called **RAII**: *Resource Acquisition Is Initialization*.
+
+The main goal of this idiom is to ensure that resource acquisition occurs at the same time that the object is initialized, so that all resources for the object are created and made ready in one line of code. 
+
+Many times in C++ we just do not need dynamic lifetime at all, since we can pass objects around by *reference* or create clever structures of composite objects - since the order of destruction is guaranteed to be in a certain order.
+
+Generally, we never work explicitly with lifetime code but we use general-purpose or specific stack-allocated levels of indirection. For instance, we use *containers* - even not standard - to manage data structures or file handlers to manage access to filesystem.
+
+Such proxies (or give them another name you like) have some well-known lifetime semantics, that is generally tied with *copy* and *move* operators. For example, `std::vector` can be fully copied into another instance. On the other hand, `std::thread` cannot be copied but only moved because the ownership of threads is *unique*.
+
+For the rest of this section, we'll learn how to use standard general-purpose tools for dynamic lifetime management.
+
+## Pointers
+
+Pointers are cheap but at the same time very messy. Could you unmistakably figure out what `p` is here?
 
 ```cpp
 void Func(int* p)
 ```
 
-* should `Func` delete `p`?
-* can `p` be null?
-* is `p` referring to a single instance or an array?
-* is `p` an out parameter?
+1. should `Func` delete `p`?
+2. can `p` be null?
+3. is `p` referring to a single instance or an array?
+4. is `p` an out parameter?
  
-Among the others, **ownership** is a huge problem. Pointers should never own resources, at least in business code (can be different in libraries or low-level code).
+Pointers can be misused especially because their syntax is tied with more than one semantics. As we have just seen, a pointer can reference either one or many instances of a certain type. A pointer can either be null or not. Also, at first sight, we do not know about the ownership of a resource referenced by a pointer.
 
-Let's see alternative solutions we have in C++.
+However, pointers are what the language provide to create and pass around dynamically-allocated objects. 
+
+That's what the *language* provide. Let's see the available and preferred tools in the *library*.
 
 ## Getting a glimpse of smart pointers
 
-**Smart pointers** are crucial to the **RAII** (*Resource Acquisition Is Initialization*) idiom. The main goal of this idiom is to ensure that resource acquisition occurs at the same time that the object is initialized, so that all resources for the object are created and made ready in one line of code. In practical terms, the main principle of RAII is to give ownership of any *heap-allocated* resource to a *stack-allocated* object whose destructor contains the code to delete or free the resource and also any associated cleanup code.
+If you feel you need to use pointers (first consider if you really do), you would normally want to use a *smart pointer* as this can alleviate many of the problems with raw pointers, mainly forgetting to delete the object and leaking memory.
 
-If you feel you need to use pointers (first consider if you really do), you would normally want to use a smart pointer as this can alleviate many of the problems with raw pointers, mainly forgetting to delete the object and leaking memory.
+A smart pointer is just a wrapper that *behaves like* a pointer but defines a clear **ownership policy** as to when the object is destroyed and copied/moved.
 
-In addition, a smart pointer defines a clear **ownership policy** as to when the object is destroyed.
+Smart pointers are allocated on the stack and passed around as normal objects.
 
 The C++ standard library provides 3 smart pointers:
 
 * [`unique_ptr`](https://en.cppreference.com/w/cpp/memory/unique_ptr)
 * [`shared_ptr`](https://en.cppreference.com/w/cpp/memory/shared_ptr)
 * [`weak_ptr`](https://en.cppreference.com/w/cpp/memory/weak_ptr)
- 
+
+Clearly, those are general-purpose tools that 98% of time cover our needs. The rest 2% is when we need more and we should implement our own smart pointer or wrapper. The guideline is just: *do not handle dynamic resources by hand but invest on your support library*.
+
 The simplest smart pointer that should be preferred by default is `unique_ptr`, defining a clear *unique* ownership policy that means: the resource will be only owned by that smart pointer:
 
 ```cpp
@@ -80,6 +126,40 @@ shared_ptr<Resource> owner1 = Acquire();
 `weak_ptr` is a smart pointer that holds a non-owning (**weak**) reference to an object that is managed by `shared_ptr`. It must be converted to `shared_ptr` in order to access the referenced object.
 
 `weak_ptr` models temporary ownership: when an object needs to be accessed only if it exists, and it may be deleted at any time by someone else, `weak_ptr` is used to track the object, and it is converted to `shared_ptr` to assume temporary ownership. If the original `shared_ptr` is destroyed at this time, the object's lifetime is extended until the temporary `shared_ptr` is destroyed as well.
+
+## Scope Guard
+
+We conclude this section by recalling a classic idiom that is a general-purpose *finalizer*, that is an operation that is always executed at the end of a scope.
+
+The idea is to have a handy class providing a customizable destructor and that can be created inline in a certain point of the code.
+
+With the advent of lambdas - that we'll see later - this has been dramatically simplified and we are able to create such code: 
+
+```cpp
+template<typename F>
+struct finalize : F
+{
+    finalize(F f) : F(f) {}
+
+    ~finalize()
+    {
+        F::operator()();
+    }
+};
+
+// business code:
+
+{
+	finalize f{[]{cout << "hello"; }};
+	// some code
+	// ...
+} // "hello" printed here
+
+```
+
+Although this is a trivial example and it's not 100% safe ([see here](https://github.com/Microsoft/GSL/issues/283)), it's fine in lots of real scenarios.
+
+As for lambdas, this idiom is useful when you need **anonymous** and disposable finalization code.
 
 Continue Reading:
 

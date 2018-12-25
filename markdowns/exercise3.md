@@ -1,21 +1,5 @@
 # Generic Programming and tuples
 
-**Generic Programming** is a style of programming in which functionalities and components are developed in terms of types that will be known at a later time - when they will be instantiated.
-
-In C++, Generic Programming is supported with **templates**, which are a powerful mechanism to generate code and take decisions at compile-time:
-
-```cpp
-template<typename T>
-T sum(T a, T b)
-{
-	return a + b;
-}
-```
-
-`sum` works on *any type* supporting `operator+`.
-
-In C++ templates are extensively used across the entire standard library.
-
 ## Tuples
 
 An **algebraic data type** is a data type defined out of a combination of two constructions: **products** and **sums**. Thus, you can think of an *ADT* as a composite type, formed by combining other types.
@@ -35,7 +19,7 @@ In C++, tuples are supported at the library level - not in the language itself:
 std::tuple<string, int, bool> checkedIn = {"marco", 31, true};
 ```
 
-Since in C++ tuples are not named (e.g. anonymous), they constitute a sort of *lingua franca* for structured data - e.g. you can pack your data into a tuple and process it with a uniform interface. For this reason, tuples are also an important building block of *generic programming* in C++.
+Since in C++ tuples are not named (e.g. anonymous), they constitute a sort of *lingua franca* for structured data - e.g. you can pack your data into a tuple and process it with a uniform interface. For this reason, tuples are also an important building block of *generic programming* in C++. For example, tuples are the simplest form of static "list of types" and can be used for several purposes in libraries and also business code.
 
 Operations on *ADT*s can be defined by using **pattern matching**:
 
@@ -128,7 +112,6 @@ assert(&z == &a);                    // passes
 
 Continue Reading:
 
-- [Generic Programming](http://stepanovpapers.com/genprog.pdf)
 - [Reference](http://en.cppreference.com/w/cpp/language/structured_binding)
 - [Adding C++17 structured bindings support to your classes](https://blog.tartanllama.xyz/structured-bindings/)
 
@@ -201,8 +184,6 @@ A very important client of our company is asking a new feature: she wants to sor
 	],
 	"command": "sh /project/target/run_test.sh ver4 [less]"})
 
-
-
 ::: Do you really give up? :(
 
 Using structure bindings on `UrlInfoTest.cpp`:
@@ -234,3 +215,34 @@ inline bool operator<(const UrlInfo& left, const UrlInfo& right)
 }
 ```
 :::
+
+## Generic Programming
+
+**Generic Programming** is a style of programming in which functionalities and components are developed in terms of types that will be known at a later time - when they will be instantiated.
+
+Generic Programming in C++ is enabled by **templates** which are a powerful mechanism to generate code and take decisions at compile-time:
+
+```cpp
+template<typename T>
+T sum(T a, T b)
+{
+	return a + b;
+}
+```
+
+`sum` works on *any type* supporting `operator+`.
+
+Templates are extensively used across the entire C++ standard library.
+
+Generic Programming in C++ consists of several techniques, such as:
+
+- type traits
+- tag dispatching
+- SFINAE
+- concepts
+- policy-based design
+- mixins
+
+
+
+The topic is very big, deserving a dedicated workshop (or more than one).
