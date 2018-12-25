@@ -138,7 +138,7 @@ int r, g, b;
 tie(r, g, b, std::ignore) = ReadRGBA(); // I don't need alpha
 ```
 
-In general, `std::tie` is useful when we need to create a *light* tuple on the fly and use tuple's capabilities. 
+In general, `std::tie` is useful when we need to create a *light* tuple on the fly and use tuple's capabilities.
 
 A common idiom consists in implementing **lexicographical comparison**:
 
@@ -243,6 +243,55 @@ Generic Programming in C++ consists of several techniques, such as:
 - policy-based design
 - mixins
 
-Traditionally, C++ metaprogramming follows 
+The topic is very big and convoluted, deserving a dedicated workshop (or more than one).
 
-The topic is very big, deserving a dedicated workshop (or more than one).
+Let's get our hands dirty just by facing a final - easy - challenge involving both tuples and generic programming.
+
+At the coffee machine, James - a template expert - threw down the gauntlet: you have to implement `unpack_to` properly.
+
+Luke, a friend of you, left a message to help you:
+
+@[Implement unpack_to]({"stubs": [
+	"microurl/src/ver4/tests/UnpackTest.cpp",
+	],
+	"command": "sh /project/target/run_test.sh ver4 [unpack]"})
+	
+::: Do you really give up? :(
+
+[`std::apply`](https://en.cppreference.com/w/cpp/utility/apply) invokes a callable by decomposing a tuple into its arguments.
+
+The challenge is basically about creating a simple wrapper on top of `std::apply`:
+
+```cpp
+template<typename F>
+struct unpack_to : F
+{
+	unpack_to(F f) : F(f) {}
+
+	template<typename Arg>
+	auto operator()(Arg&& arg) const
+	{
+		return std::apply(*static_cast<const F*>(this), std::forward<Arg>(arg));
+	}
+};
+``` 
+
+Or:
+
+```cpp
+template<typename F>
+struct unpack_to
+{
+	unpack_to(F f) : m_f(f) {}
+
+	template<typename Arg>
+	auto operator()(Arg&& arg) const
+	{
+		return std::apply(m_f, std::forward<Arg>(arg));
+	}
+private:
+	F m_f;
+};
+
+``` 
+:::

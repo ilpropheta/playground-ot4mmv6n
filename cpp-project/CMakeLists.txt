@@ -55,6 +55,7 @@ add_executable(ver3
 add_executable(ver4	
 	microurl/src/ver4/tests/UrlInfoTest.cpp
 	microurl/src/ver4/tests/UrlInfoCompareTest.cpp
+	microurl/src/ver4/tests/UnpackTest.cpp
 	${ThirdPartyHeaders} ${ThirdPartySources} 
 	${Ver4Headers} ${Ver4Sources})	
 	
