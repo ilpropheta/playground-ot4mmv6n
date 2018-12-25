@@ -41,7 +41,7 @@ tuple<double, Record> entry = LoadDouble();
 process(entry); // do not compile
 ```
 
-**Pattern matching** is a powerful tool that is widely used in both **functional** and **declarative** programming.
+**Pattern matching** is a powerful tool that is widely used in **functional**, **declarative** and **generic** programming.
 
 ## Structure bindings
 
@@ -243,6 +243,6 @@ Generic Programming in C++ consists of several techniques, such as:
 - policy-based design
 - mixins
 
-
+Traditionally, C++ metaprogramming follows 
 
 The topic is very big, deserving a dedicated workshop (or more than one).

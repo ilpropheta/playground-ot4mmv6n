@@ -129,11 +129,11 @@ shared_ptr<Resource> owner1 = Acquire();
 
 ## Scope Guard
 
-We conclude this section by recalling a classic idiom that is a general-purpose *finalizer*, that is an operation that is always executed at the end of a scope.
+We conclude this section by recalling a classic idiom that is a general-purpose *finalizer*: an operation always executed at the end of the scope.
 
-The idea is to have a handy class providing a customizable destructor and that can be created inline in a certain point of the code.
+The idea is to have a handy class providing a customizable destructor and that can be created inline.
 
-With the advent of lambdas - that we'll see later - this has been dramatically simplified and we are able to create such code: 
+With the advent of lambdas - that we'll see later - and C++17 automatic deduction of class templates this has been dramatically simplified:
 
 ```cpp
 template<typename F>
@@ -157,7 +157,7 @@ struct finalize : F
 
 ```
 
-Although this is a trivial example and it's not 100% safe ([see here](https://github.com/Microsoft/GSL/issues/283)), it's fine in lots of real scenarios.
+Although this is a trivial implementation ([see a possible issue here](https://github.com/Microsoft/GSL/issues/283)), it's acceptable in lots of real scenarios.
 
 As for lambdas, this idiom is useful when you need **anonymous** and disposable finalization code.
 
