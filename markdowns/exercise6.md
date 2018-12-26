@@ -131,17 +131,13 @@ We could create a utility function which returns either a `const` or mutable ref
 
 ```cpp
 template<typename IdToUrlMap>
-auto TryLookup(IdToUrlMap& m, string_view str)
+auto TryLookup(IdToUrlMap& m, string_view str) -> decltype( std::optional{std::ref(m.find(UrlToId(str))->second)} )
 {
-	constexpr bool MapIsConst = std::is_const_v<std::remove_reference_t<decltype(m)>>;
-	using UrlInfoType = std::conditional_t<MapIsConst, const UrlInfo, UrlInfo>;
-	using OptionalType = std::optional<std::reference_wrapper<UrlInfoType>>;
-
-	if (auto it = m.find(UrlToId(str)); it != end(m))
+    if (auto it = m.find(UrlToId(str)); it != end(m))
 	{
-		return OptionalType{ it->second };
+		return std::ref(it->second);
 	}
-	return OptionalType{ nullopt };
+	return nullopt;
 }
 ```
 
