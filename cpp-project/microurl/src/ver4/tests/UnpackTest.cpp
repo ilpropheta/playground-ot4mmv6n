@@ -37,4 +37,17 @@ TEST_CASE("Designing and testing unpack_to", "[unpack]")
 	}));
 
 	REQUIRE(actual == expected);
+	
+	std::vector<std::pair<int, int>> expected2 = {
+		{10, 20},
+		{21, 80},
+		{15, 100}
+	};
+
+	std::vector<std::pair<int, int>> actual2;
+	std::for_each(begin(expected2), end(expected2), unpack_to([&](auto urls, auto clicks){
+		actual2.emplace_back(urls, clicks);
+	}));
+
+	REQUIRE(actual2 == expected2);
 }

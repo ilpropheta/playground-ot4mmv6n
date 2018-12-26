@@ -1,5 +1,34 @@
 # Generic Programming and tuples
 
+**Generic Programming** is a style of programming in which functionalities and components are developed in terms of types that will be known at a later time - when they will be instantiated.
+
+Generic Programming in C++ is enabled by **templates** which are a powerful mechanism to generate code and take decisions at compile-time:
+
+```cpp
+template<typename T>
+T sum(T a, T b)
+{
+	return a + b;
+}
+```
+
+`sum` works on *any type* supporting `operator+`.
+
+Templates are extensively used across the entire C++ standard library.
+
+Generic Programming in C++ consists of several techniques, such as:
+
+- type traits
+- tag dispatching
+- SFINAE
+- concepts
+- policy-based design
+- mixins
+
+The topic is very big and convoluted, deserving a dedicated workshop (or more than one).
+
+At the end of this section, we'll face with a challenge about generic programming and tuples.
+
 ## Tuples
 
 An **algebraic data type** is a data type defined out of a combination of two constructions: **products** and **sums**. Thus, you can think of an *ADT* as a composite type, formed by combining other types.
@@ -216,40 +245,33 @@ inline bool operator<(const UrlInfo& left, const UrlInfo& right)
 ```
 :::
 
-## Generic Programming
-
-**Generic Programming** is a style of programming in which functionalities and components are developed in terms of types that will be known at a later time - when they will be instantiated.
-
-Generic Programming in C++ is enabled by **templates** which are a powerful mechanism to generate code and take decisions at compile-time:
-
-```cpp
-template<typename T>
-T sum(T a, T b)
-{
-	return a + b;
-}
-```
-
-`sum` works on *any type* supporting `operator+`.
-
-Templates are extensively used across the entire C++ standard library.
-
-Generic Programming in C++ consists of several techniques, such as:
-
-- type traits
-- tag dispatching
-- SFINAE
-- concepts
-- policy-based design
-- mixins
-
-The topic is very big and convoluted, deserving a dedicated workshop (or more than one).
+## Tuples unpacking - Hands on!
 
 Let's get our hands dirty just by facing a final - easy - challenge involving both tuples and generic programming.
 
-At the coffee machine, James - a template expert - threw down the gauntlet: you have to implement `unpack_to` properly.
+You met James - a template expert - at the coffee machine and discussed about invoking lambdas on tuples. James told you he has implemented a utility to improve the way to call lambdas on tuple-like objects. Usually, we have:
 
-Luke, a friend of you, left a message to help you:
+```cpp
+vector<tuple<string, int, int>> v = ...;
+
+find_if(begin(v), end(v), [](auto& t) {
+	return get<1>(t) == 20;
+});
+```
+
+The parameter `t` does not really say anything about its content. Instead, James is implementing *something* to enable a richer syntax:
+
+```cpp
+vector<tuple<string, int, int>> v = ...;
+
+find_if(begin(v), end(v), unpack_to([](auto name, auto urls, auto clicks) {
+	return age == 20;
+});
+```
+
+You are intrigued by James' utility and you decide to roll your own implementation. Luke, a friend of you, has some insights for you and left a comment in the code.
+
+Can you implement `unpack_to`?
 
 @[Implement unpack_to]({"stubs": [
 	"microurl/src/ver4/tests/UnpackTest.cpp",
@@ -293,5 +315,8 @@ private:
 	F m_f;
 };
 
-``` 
+```
+
+At home, if you feel brave, try implementing your own `std::apply`!
+
 :::
