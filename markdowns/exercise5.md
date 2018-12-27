@@ -4,7 +4,7 @@ Post-modern C++ programmers master more than one paradigm and, without a doubt, 
 
 We cannot really cover functional programming in C++, it would need more than a workshop! However, we could introduce a few interesting concepts and try them out.
 
-Actually, we have already met some functional concepts in (a previous section)[generic-programming-and-tuples].
+Actually, we have already met some functional concepts in [a previous section](generic-programming-and-tuples).
 
 ## Lambdas, lambdas everywhere
 
