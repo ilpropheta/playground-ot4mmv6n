@@ -5,9 +5,9 @@
 // }
 
 template<typename F>
-struct unpack_to : F
+struct unpack_to
 {
-	unpack_to(F f) : F(f) {}
+	unpack_to(F f) {}
 
 	template<typename Arg>
 	auto operator()(Arg&& arg) const
