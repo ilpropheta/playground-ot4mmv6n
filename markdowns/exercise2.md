@@ -91,6 +91,46 @@ Yes, because in this case `shared_ptr` knows that the actual object is of type `
 
 This is not the case for `unique_ptr`, that does not introduce such overhead.
 
+### Slicing and clones
+
+If an interface (ar any polymorphic class) is accidentally passed *by value*, with the implicitly generated copy constructor and assignment, we risk *slicing*: only the base portion of a derived object will be copied, and the polymorphic behavior will be corrupted.
+
+For this reason, many people prefer `=delete`-ing special operators of interfaces:
+
+```cpp
+class Interface 
+{ 
+public:
+    virtual ~Interface() = default;
+    Interface(const Interface&) = delete;
+    Interface& operator=(const Interface&) = delete;
+    Interface(Interface&&) = delete;
+    Interface& operator=(Interface&&) = delete;
+    // ...
+};
+
+class Derived : public Interface
+{
+public:
+    // ...
+};
+
+void f(Interface& b) 
+{
+    auto b2 = b; // does not compile
+}
+
+Derived d;
+f(d);
+```
+
+For making deep copies of polymorphic classes prefer a virtual `clone` function instead of copy construction/assignment. Continue reading the guideline [C.130](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rh-copy) for more details.
+
+Continue Reading:
+
+* [C.21: If you define or =delete any default operation, define or =delete them all](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rc-five)
+* [C.67: A polymorphic class should suppress copying](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rc-copy-virtual)
+
 ### Enforce overriden functions with `override`
 
 Since C++11, we can enforce that a derived class overrides a base function by using `override`:
@@ -133,46 +173,6 @@ public:
 This does not compile.
 
 Use `override` as much as possible (many refactoring tools will automatically do).
-
-### Slicing and clones
-
-If an interface (ar any polymorphic class) is accidentally passed *by value*, with the implicitly generated copy constructor and assignment, we risk *slicing*: only the base portion of a derived object will be copied, and the polymorphic behavior will be corrupted.
-
-For this reason, many people prefer `=delete`-ing special operators of interfaces:
-
-```cpp
-class Interface 
-{ 
-public:
-    virtual ~Interface() = default;
-    Interface(const Interface&) = delete;
-    Interface& operator=(const Interface&) = delete;
-    Interface(Interface&&) = delete;
-    Interface& operator=(Interface&&) = delete;
-    // ...
-};
-
-class Derived : public Interface
-{
-public:
-    // ...
-};
-
-void f(Interface& b) 
-{
-    auto b2 = b; // does not compile
-}
-
-Derived d;
-f(d);
-```
-
-For making deep copies of polymorphic classes prefer a virtual `clone` function instead of copy construction/assignment. Continue reading the guideline [C.130](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rh-copy) for more details.
-
-Continue Reading:
-
-* [C.21: If you define or =delete any default operation, define or =delete them all](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rc-five)
-* [C.67: A polymorphic class should suppress copying](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rc-copy-virtual)
 
 ## Hands on!
 
