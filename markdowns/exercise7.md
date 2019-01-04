@@ -12,7 +12,7 @@ After this workshop I hope you have understood my point: **C++ is not about a si
 
 ## Adopt or adapt
 
-In my opinion, in C++ "adapting on any paradigm" means two things: first of all, you can *express your own C++ style* through your mixture of styles, idioms and paradigms. Second, you know how to adapt to different "enemies": if you decide not to use certain C++ tools is ok, but you should know how they work or you'll have troubles in the future. This is probably a simple point that is always valid in any discipline. It's just worth reiterating.
+In my opinion, in C++ "adapting on any paradigm" means two things: first of all, you can *express your own C++ style* through your mixture of styles, idioms and paradigms. Second, you know how to adapt to different "enemies": if you decide not to use certain C++ tools is ok, but you should know how they work or you'll have troubles in the future. This is probably a simple point that holds in any discipline. It's just worth reiterating.
 
 Some concepts we met have been growing up in the C++ ecosystem for decades but some people do not know them yet.
 
