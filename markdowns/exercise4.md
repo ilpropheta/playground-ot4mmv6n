@@ -1,6 +1,6 @@
 # `std::string`, `const char*`, `QString`, `CString`... oh my!
 
-> Before learning C++, when I was asked to define a string, for me it was just a sequence of characters. When I started learning C++ and putting my hands on real-world codebases, I encountered several different string types. A string was no longer just a sequence of characters. Finally, after some years of practicing with strings, I found string_view and a string returned to be just a sequence of characters. A string returned to be just a string.
+> Before learning C++, when I was asked to define a string, for me it was just a sequence of characters. When I started learning C++ and putting my hands on real-world codebases, I encountered several different string types like std::string, QString, CString, etc. A string was no longer just a sequence of characters. Finally, after some years of practicing with strings, I found string_view and a string returned to be just a sequence of characters. A string returned to be just a string.
 
 *Bruce Lee* about his experience with strings in C++.
 
