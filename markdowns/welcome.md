@@ -10,7 +10,7 @@ This workshop is an improvement version of my [previous one](https://tech.io/pla
 
 ## Introduction
 
-![Congratulations!](https://github.com/ilpropheta/playground-ot4mmv6n/raw/master/bruce-lee-quote.png)
+![Congratulations!](https://raw.githubusercontent.com/ilpropheta/playground-ot4mmv6n/master/bruce-lee-quote.png)
 
 I think that if *Bruce Lee* was alive, he would have loved C++!
 
