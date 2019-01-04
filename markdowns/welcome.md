@@ -10,6 +10,8 @@ This workshop is an improvement version of my [previous one](https://tech.io/pla
 
 ## Introduction
 
+![Congratulations!](bruce-lee-quote.png)
+
 I think that if *Bruce Lee* was alive, he would have loved C++!
 
 Bruce Lee was used to say:
