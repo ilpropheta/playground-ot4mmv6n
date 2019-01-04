@@ -28,7 +28,40 @@ delete [] i;
 
 Since dynamic lifetime does not obey to automatic lifetime rules, ownership is more cumbersome and error-prone. In practical terms, in C++ we give ownership of any *heap-allocated* resource to a *stack-allocated* object whose destructor contains the code to delete or free the resource and also any associated cleanup code. This way we turn dynamic lifetime into automatic lifetime, more or less.
 
-This simple rule is a fundamental C++ lifetime idiom called **RAII**: *Resource Acquisition Is Initialization*.
+This simple rule is a fundamental C++ lifetime idiom called **RAII**: *Resource Acquisition Is Initialization*:
+
+```cpp
+struct Handler
+{
+	Handler(resource* res)
+	    : m_res(res)
+	{
+	}
+	
+	~Handler()
+	{
+	    delete m_res;
+	}
+	
+	void Use()
+	{
+	    // ...
+	    // use m_res...
+	}
+	
+	
+private:
+    resource* m_res;
+};
+
+
+{
+    Handler h( InitResource() );
+    
+    h.Use();
+    
+} // the resource is released here
+```
 
 The main goal of this idiom is to ensure that resource acquisition occurs at the same time that the object is initialized, so that all resources for the object are created and made ready in one line of code. 
 
