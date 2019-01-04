@@ -311,7 +311,7 @@ void MicroUrlService::VisitMicroUrls(Visitor visitor) const
 
 ## Algorithms Renaissance
 
-Lambda expressions breathed new life into STL algorithms. Basically, customization points of standard functions are passed as **callable** objects, that are objects implementing the **call operator** (e.g. `operator()`). Before C++11, we had to use free/static functions or separate classes, making the use of algorithms a bit inconvenient.
+Lambda expressions breathed new life into [STL algorithms](https://en.cppreference.com/w/cpp/algorithm). Basically, customization points of standard functions are passed as **callable** objects, that are objects implementing the **call operator** (e.g. `operator()`). Before C++11, we had to use free/static functions or separate classes, making the use of algorithms a bit inconvenient.
 
 Since C++11, we can finally drop some disposable pieces of code on the same line the algorithm is called.
 
