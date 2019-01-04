@@ -65,17 +65,22 @@ private:
 
 The main goal of this idiom is to ensure that resource acquisition occurs at the same time that the object is initialized, so that all resources for the object are created and made ready in one line of code. 
 
+## Rule of Zero
+
+Classes that have custom destructors, copy/move constructors or copy/move assignment operators should deal exclusively with ownership (which follows from the *Single Responsibility Principle*). 
+Other classes should not have custom destructors, copy/move constructors or copy/move assignment operators.
+
 Many times in C++ we just do not need dynamic lifetime at all, since we can pass objects around by *reference* or create clever structures of composite objects - since the order of destruction is guaranteed to be in a certain order.
 
 Generally, we never work explicitly with lifetime code but we use general-purpose or specific stack-allocated levels of indirection. For instance, we use *containers* - even not standard - to manage data structures or file handlers to manage access to filesystem.
 
 Such proxies (or give them another name you like) have some well-known lifetime semantics, that is generally tied with *copy* and *move* operators. For example, `std::vector` can be fully copied into another instance. On the other hand, `std::thread` cannot be copied but only moved because the ownership of threads is *unique*.
 
-For the rest of this section, we'll learn how to use standard general-purpose tools for dynamic lifetime management.
+For the rest of this section, we'll learn how to use standard general-purpose tools for dynamic lifetime management that will help adopt the rule of zero.
 
 ## Pointers
 
-Pointers are cheap but at the same time very messy. Could you unmistakably figure out what `p` is here?
+Pointers are cheap but at the same time very messy. Could you unmistakably answer to these questions about the following function?
 
 ```cpp
 void Func(int* p)
