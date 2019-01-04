@@ -21,9 +21,9 @@ On the other hand, other kind of semantics need explicit syntax:
 int i = 10;
 int& iref = i; // reference semantics
 
-auto i = new int[10]{}; // dynamic buffer
+int* arr = new int[10]{}; // dynamic buffer
 
-delete [] i;
+delete [] arr;
 ```
 
 Since dynamic lifetime does not obey to automatic lifetime rules, ownership is more cumbersome and error-prone. In practical terms, in C++ we give ownership of any *heap-allocated* resource to a *stack-allocated* object whose destructor contains the code to delete or free the resource and also any associated cleanup code. This way we turn dynamic lifetime into automatic lifetime, more or less.
