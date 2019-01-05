@@ -101,6 +101,7 @@ For this reason, many people prefer `=delete`-ing special operators of interface
 class Interface 
 { 
 public:
+    Interface() = default;
     virtual ~Interface() = default;
     Interface(const Interface&) = delete;
     Interface& operator=(const Interface&) = delete;
