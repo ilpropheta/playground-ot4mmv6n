@@ -49,8 +49,6 @@ Pointers can be misused especially because their syntax is tied with more than o
 
 However, pointers are what the language provide to create and pass around dynamically-allocated objects. 
 
-That's what the *language* provide. Let's see the available and preferred tools in the *library*.
-
 Since dynamic lifetime does not obey to automatic lifetime rules, ownership is more cumbersome and error-prone. In practical terms, in C++ we give ownership of any *heap-allocated* resource to a *stack-allocated* object whose destructor contains the code to delete or free the resource and also any associated cleanup code. This way we turn dynamic lifetime into automatic lifetime, more or less.
 
 This simple rule is a fundamental C++ lifetime idiom called **RAII**: *Resource Acquisition Is Initialization*:
