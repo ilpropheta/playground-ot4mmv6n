@@ -24,10 +24,11 @@ Let's recap the topics we have met so far:
 
 * **RAII** is probably the most important idiom in C++ and **smart pointers** are general-purpose tools implementing such an idiom
    * the general rule is: don't let plain pointers own resources;
-* **Interfaces** are powerful building blocks of object oriented programming. Although the support for interfaces in C++ is not as explicit as in other languages, you should learn the idioms to build them correctly and safely. In addition, you could use smart pointers to effectively craft **factory functions**;
-* **tuples** and **structure bindings** are useful to manipulate structured data under a generic and common interface. Along the way, you have learnt `std::tie` idiom to easily and efficiently pack any data into a - light - tuple of references;
-* `std::string_view` is a powerful tool for **referencing** sequences of chars as `std::string`-like readonly objects;
-* the introduction of **lambdas** revolutionized how we write code in C++, with the first effect of empowering the usage of STL algorithms ("no more excuses"). In addition, it opens to scenarios where functional programming could be a good fit. We cannot really speak of "functional programming" but it's a very good start;
+* **Interfaces** are powerful building blocks of object oriented programming. Although the support for interfaces in C++ is not as explicit as in other languages, you should learn the idioms to build them correctly and safely;
+* **Generic Programming** is a fundamental paradigms in C++, enabled by **templates** and used to generate code at compile-time;
+* **tuples** are useful to manipulate structured data under a generic and common interface;
+* `std::string_view` is a powerful tool for **referencing** any char sequence as an immutable `std::string`. It open doors to new styles of programming (cf. [.net core's Span and Memory](https://medium.com/@antao.almada/how-to-use-span-t-and-memory-t-c0b126aae652));
+* the introduction of **lambdas** revolutionized how we write code; 
 * we have many ways for handling errors in C++ (and, generally, in programming). `std::optional` is a "monadic" way for encapsulating errors and missing values. It's a *vocabulary type*, meaning that it's the default way to express *nullable value semantics*.
 
 See you next time!
