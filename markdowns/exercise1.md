@@ -20,11 +20,36 @@ On the other hand, other kind of semantics need explicit syntax:
 ```cpp
 int i = 10;
 int& iref = i; // reference semantics
+```
 
+How to allocate resources dynamically (e.g. we do not know the size of an array at compile-time)?
+
+## Pointers Headache
+
+To instantiate resources dynamically, the language provides operators which return **pointers** to heap-allocated resources:
+
+```cpp
 int* arr = new int[10]{}; // dynamic buffer
-
+// in case of exceptions... :(
 delete [] arr;
 ```
+
+Pointers are cheap but at the same time very messy and error-prone. Apart from problems such as memory leaks, let's see another issue: could you unmistakably answer to these questions about the following function?
+
+```cpp
+void Func(int* p)
+```
+
+1. should `Func` delete `p`?
+2. can `p` be null?
+3. is `p` referring to a single instance or an array?
+4. is `p` an out parameter?
+ 
+Pointers can be misused especially because their syntax is tied with more than one semantics. As we have just seen, a pointer can reference either one or many instances of a certain type. A pointer can either be null or not. Also, at first sight, we do not know about the ownership of a resource referenced by a pointer.
+
+However, pointers are what the language provide to create and pass around dynamically-allocated objects. 
+
+That's what the *language* provide. Let's see the available and preferred tools in the *library*.
 
 Since dynamic lifetime does not obey to automatic lifetime rules, ownership is more cumbersome and error-prone. In practical terms, in C++ we give ownership of any *heap-allocated* resource to a *stack-allocated* object whose destructor contains the code to delete or free the resource and also any associated cleanup code. This way we turn dynamic lifetime into automatic lifetime, more or less.
 
@@ -70,32 +95,11 @@ The main goal of this idiom is to ensure that resource acquisition occurs at the
 Classes that have custom destructors, copy/move constructors or copy/move assignment operators should deal exclusively with ownership (which follows from the *Single Responsibility Principle*). 
 Other classes should not have custom destructors, copy/move constructors or copy/move assignment operators.
 
-Many times in C++ we just do not need dynamic lifetime at all, since we can pass objects around by *reference* or create clever structures of composite objects - since the order of destruction is guaranteed to be in a certain order.
-
-Generally, we never work explicitly with lifetime code but we use general-purpose or specific stack-allocated levels of indirection. For instance, we use *containers* - even not standard - to manage data structures or file handlers to manage access to filesystem.
+Generally, we never work explicitly with lifetime code but we use general-purpose or ad hoc stack-allocated levels of indirection. For instance, we use *containers* - even not standard - to manage data structures or file handlers to manage access to filesystem.
 
 Such proxies (or give them another name you like) have some well-known lifetime semantics, that is generally tied with *copy* and *move* operators. For example, `std::vector` can be fully copied into another instance. On the other hand, `std::thread` cannot be copied but only moved because the ownership of threads is *unique*.
 
 For the rest of this section, we'll learn how to use standard general-purpose tools for dynamic lifetime management that will help adopt the rule of zero.
-
-## Pointers
-
-Pointers are cheap but at the same time very messy. Could you unmistakably answer to these questions about the following function?
-
-```cpp
-void Func(int* p)
-```
-
-1. should `Func` delete `p`?
-2. can `p` be null?
-3. is `p` referring to a single instance or an array?
-4. is `p` an out parameter?
- 
-Pointers can be misused especially because their syntax is tied with more than one semantics. As we have just seen, a pointer can reference either one or many instances of a certain type. A pointer can either be null or not. Also, at first sight, we do not know about the ownership of a resource referenced by a pointer.
-
-However, pointers are what the language provide to create and pass around dynamically-allocated objects. 
-
-That's what the *language* provide. Let's see the available and preferred tools in the *library*.
 
 ## Getting a glimpse of smart pointers
 
