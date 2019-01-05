@@ -92,6 +92,7 @@ Your team has decided to handle failures with `optional`. The signatures have be
 @[Handling invalid urls with optional]({"stubs": [ 
 	 "microurl/src/ver7/MicroUrlService.h",
 	 "microurl/src/ver7/MicroUrlService.cpp",
+	 "microurl/src/ver7/MicroUrlInfo.h",
 	 "microurl/src/ver7/tests/UrlInfoTest.cpp",
 	],
 	"command": "sh /project/target/run_test.sh ver7 [optional]"})
