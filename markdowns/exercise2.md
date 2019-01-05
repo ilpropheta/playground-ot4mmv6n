@@ -125,7 +125,9 @@ Derived d;
 f(d);
 ```
 
-For making deep copies of polymorphic classes prefer a virtual `clone` function instead of copy construction/assignment. Continue reading the guideline [C.130](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rh-copy) for more details.
+It's clearly a tradeoff because the code above makes derived instances not copyable.
+
+Generally, for making deep copies of polymorphic classes we prefer a virtual `clone` function instead of copy construction/assignment. Continue reading the guideline [C.130](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rh-copy) for more details.
 
 Continue Reading:
 
