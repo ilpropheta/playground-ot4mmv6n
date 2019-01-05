@@ -35,7 +35,29 @@ An **algebraic data type** is a data type defined out of a combination of two co
 
 A **product** is a way to combine multiple types into one (e.g. `struct`, `tuple`).
 
+Example:
+
+```cpp
+struct Record
+{
+    std::string name;
+    int age;
+    bool checkIn;
+};
+```
+
 A **sum** holds a value that could take on several different, but fixed, types (e.g. `variant`).
+
+Example:
+
+```cpp
+using Data = std::variant<Rock, Paper, Scissors>;
+
+Data player1 = Rock;
+Data player2 = Paper;
+
+play(player1, player2);
+```
 
 A **tuple** is a fixed-size and ordered collection of heterogeneous values - a product type.
 
@@ -71,6 +93,40 @@ process(entry); // do not compile
 ```
 
 **Pattern matching** is a powerful tool that is widely used in **functional**, **declarative** and **generic** programming.
+
+Example of pattern matching on `std::variant`s:
+
+```cpp
+struct Paper{};
+struct Rock{};
+struct Scissors{};
+
+using Move = variant<Paper, Rock, Scissors>;
+
+struct Game
+{
+    int operator()(Paper, Rock) const { return 1; }
+    int operator()(Rock, Paper) const { return 2; }
+    int operator()(Rock, Scissors) const { return 1; }
+    int operator()(Scissors, Rock) const { return 2; }
+    int operator()(Scissors, Paper) const { return 1; }
+    int operator()(Paper, Scissors) const { return 2; }
+    
+    template<typename T1, typename T2>
+    int operator()(T1, T2) const 
+    { 
+        return 0; // deuce 
+    }
+};
+
+int main()
+{
+    Move m1 = Scissors{};
+    Move m2 = Paper{};
+    Game g;
+    cout << visit(g, m1, m2);
+}
+```
 
 ## Structure bindings
 
