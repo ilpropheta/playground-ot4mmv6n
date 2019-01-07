@@ -1,9 +1,5 @@
 # Use Interfaces, Luke
 
-> Life is a constant process or relating.
-
-*Bruce Lee*
-
 Without a doubt, the **Object-Oriented** paradigm contributed to the diffusion of C++ in the industry in the early 90s.
 
 **Interfaces** constitute a powerful basic concept of Object Orientation. An interface is, simply, a description of the actions that an object can do.
