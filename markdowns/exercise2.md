@@ -2,7 +2,7 @@
 
 > Life is a constant process or relating.
 
-Bruce Lee.
+*Bruce Lee*
 
 Without a doubt, the **Object-Oriented** paradigm contributed to the diffusion of C++ in the industry in the early 90s.
 
