@@ -252,7 +252,7 @@ struct S
 
 This very effective idiom could save time and make the code simpler. Try writing the same by hand and compare the result with the snippet above.
 
-## `tuple` and metaoprogramming
+## `tuple` and Generic Programming
 
 `tuple` is very important for metaprogramming in C++. It's a statically-sized list of heterogenous values. Since the structure of a tuple is known at compile-time, many interesting things can be done.
 
