@@ -1,8 +1,12 @@
 # Use Interfaces, Luke
 
-C++ is a multi-paradigm programming language, supporting, among the others, the **Object-Oriented** paradigm.
+> Life is a constant process or relating.
 
-**Interfaces** constitute a powerful basic concept of Object-Oriented Programming. They are, simply, a description of the actions that an object can do.
+Bruce Lee.
+
+Without a doubt, the **Object-Oriented** paradigm contributed to the diffusion of C++ in the industry in the early 90s.
+
+**Interfaces** constitute a powerful basic concept of Object Orientation. An interface is, simply, a description of the actions that an object can do.
 
 C++ does not really have a built-in support for interfaces like Java or C#. A way to declare an interface in C++ constists in declaring an abstract class with pure virtual functions:
 
