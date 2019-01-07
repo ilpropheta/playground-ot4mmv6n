@@ -276,12 +276,6 @@ private:
 
 Once you have packed your values into `tuple`s, it's like having a "list" at compile-time. You can do manipulations, concatenation, search, etc.
 
-The C++ standard already provides some basic bits of `tuple` but if you need to do intensive metaprogramming, they are probably not enough.
-
-Continue Reading:
-
-* [Tiny Metaprogramming Library](http://ericniebler.com/2014/11/13/tiny-metaprogramming-library/)
-
 ## Hands on!
 
 Let's get familiar with these concepts.
