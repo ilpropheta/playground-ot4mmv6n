@@ -18,6 +18,8 @@ Some concepts we met have been growing up in the C++ ecosystem for decades but s
 
 Other concepts are more new and debatable, open to balancing compromises and often they imply to use a certain "style". For instance, `std::optional`, that has been in the industry (and in many other languages) for many years but it is a competitor of other styles and ways to handle errors.
 
+We are in software. We balance competing tradeoffs.
+
 ## Recap
 
 Let's recap the topics we have met so far:
