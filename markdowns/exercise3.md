@@ -202,30 +202,36 @@ Continue Reading:
 
 ## `std::tie` idiom
 
-We have met structured bindings and understood how it works, more or less. Before putting our hands on the code, let's meet another important tool of post-modern C++: `std::tie`.
+Structure bindings serves to destructure a tuple-like object into its components. Many times we need to do the inverse operation: make a tuple from some unstructured data. Packing data into a tuple opens doors to use tuple's interface on such data.
 
-`std::tie` is a function which creates a `std::tuple` of **references** to the parameters we pass it:
+Since creating a tuple involves creating a new object, possibly we do not want to copy data. We would like to *reference* such data, as we do with structure bindings. That's a job for `std::tie`: a function which creates a `std::tuple` of **references** to the parameters we provide:
+
+```cpp
+int r, g, b;
+float a;
+auto tRefs = tie(r, g, b, a); // aka: tuple<int&, int&, int&, float&>
+```
+
+Once we have a tuple, we can use any of it supported functions.
+
+For example, we can use `operator=` for a member-wise assignment:
 
 ```cpp
 tuple<int, int, int, float> ReadRGBA();
 
 int r, g, b;
 float a;
-tie(r, g, b, a) = ReadRGBA(); // r, g, b, a are assigned
+tie(r, g, b, a) = ReadRGBA(); // r, g, b, a are assigned in order
 ```
 
-The example above is a compact way to assign multiple values from an expression. As you can imagine, this is really similar to structured bindings but it covers the case when we already have variables and we just want to assign them.
-
-In addition, we can `std::ignore` uninteresting fields:
+Differently from structure bindings, we can `std::ignore` fields we do not want to reference:
 
 ```cpp
 int r, g, b;
 tie(r, g, b, std::ignore) = ReadRGBA(); // I don't need alpha
 ```
 
-In general, `std::tie` is useful when we need to create a *light* tuple on the fly and use tuple's capabilities.
-
-A common idiom consists in implementing **lexicographical comparison**:
+Another common idiom consists in using `tie` to implement **lexicographical comparison** (e.g. `operator<`):
 
 ```cpp
 struct S 
@@ -245,6 +251,36 @@ struct S
 ```
 
 This very effective idiom could save time and make the code simpler. Try writing the same by hand and compare the result with the snippet above.
+
+## `tuple` and metaoprogramming
+
+`tuple` is very important for metaprogramming in C++. It's a statically-sized list of heterogenous values. Since the structure of a tuple is known at compile-time, many interesting things can be done.
+
+First of all, even though `tuple` has values, it can be used as a simple *list* of types. Every metaprogramming library provides this kind of concept (generally referred as *typelist*).
+
+Another important role of `tuple` comes with *variadic templates*: if you want to store and pass around a *variadic pack*, you can use a std::tuple:
+
+```cpp
+template <typename... T>
+struct Packer
+{
+  Packer(T... vals) 
+    : values(vals...)
+  {
+  }
+ 
+private:
+  std::tuple<T...> values;
+};
+```
+
+Once you have packed your values into `tuple`s, it's like having a "list" at compile-time. You can do manipulations, concatenation, search, etc.
+
+The C++ standard already provides some basic bits of `tuple` but if you need to do intensive metaprogramming, they are probably not enough.
+
+Continue Reading:
+
+* [Tiny Metaprogramming Library](http://ericniebler.com/2014/11/13/tiny-metaprogramming-library/)
 
 ## Hands on!
 
@@ -304,6 +340,8 @@ inline bool operator<(const UrlInfo& left, const UrlInfo& right)
 ## Tuples unpacking - Hands on!
 
 Let's get our hands dirty just by facing a final - easy - challenge involving both tuples and generic programming.
+
+As we discussed, `tuple` is an important brick for both generic and business code. We are about to see an interesting use case that involves `tuple` and one standard function recently added to the library.
 
 You met James - a template expert - at the coffee machine and discussed about invoking lambdas on tuples. James told you he has implemented a utility to improve the way to call lambdas on tuple-like objects. Usually, we have:
 
