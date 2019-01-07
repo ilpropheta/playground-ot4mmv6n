@@ -1,5 +1,13 @@
 # Lifetime patterns
 
+> A great C++ comes with great responsibility.
+
+[Marco Arena](https://www.youtube.com/watch?v=GuNSstZevr4).
+
+In C++, we have **control**. Maybe too much control.
+
+We can define when objects are created and destroyed, we can craft precise rules for copying or "moving" data around. We can even do nothing and let the languages rules do the job for us. In general, this latter choice is the desideratum.
+
 By default, C++ objects have **automatic** lifetime, that is, they are destructed and deallocated automatically when they go out of scope - even though an exception is thrown:
 
 ```cpp
