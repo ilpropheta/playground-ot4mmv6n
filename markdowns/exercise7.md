@@ -28,7 +28,7 @@ Clearly we have very good and wise idioms. Thus many times our decisions are sea
 
 Some concepts we have met today have been growing up in the C++ ecosystem for decades. Yet some people do not know them. Don't join such people.
 
-Other concepts are more new and debatable, open to balancing compromises and often they imply to commit to a certain "style". For instance, `std::optional`, that has been in the industry (and in many other languages) for many years but it is a competitor of other styles and ways to handle errors. Be open to *take in consideration* new styles and idioms. As Bruce Lee was used to advocate his [Jeet Kune Do](https://en.wikipedia.org/wiki/Jeet_Kune_Do):
+Other concepts are more new and debatable, open to balancing compromises and often they imply to commit to a certain "style". For instance, `std::optional`, that has been in the industry (and in many other languages) for many years but it is a competitor of other styles and ways to handle errors. Be open to *take in consideration* new styles and idioms. As Bruce Lee was used to wrap up his [Jeet Kune Do](https://en.wikipedia.org/wiki/Jeet_Kune_Do):
 
 ```
 Research your own experience.
