@@ -32,11 +32,13 @@ sv.remove_prefix(std::min(sv.find_first_not_of(" "), sv.size())); // sv is "trim
 
 Remember that `string_view` **is not necessarily NUL-terminated**.
 
-### Adopt or adapt
+### Cheap abstractions
 
 Although `string_view` is a very old concept in the C++ ecosystem, it's been officially introduced since C++17.
 
 I have added it to the workshop not only because it's important and useful, but especially because `string_view` will change the way we write C++ code. It's a new *paradigm*. Like `auto`, *smart pointers* or *lambdas* - and after `string_view` we'll have `span` (`array_view`).
+
+`string_view` is an example of what we mean in C++ with the expression **0-overhead high level abstractions**. We have a high level abstraction on top of a raw buffer of characters (often referred to as *C-style buffer*, a term more for **Systems Programming** than for Application-level programming).
 
 Many people already use such objects (they are, basically, *smart references*) like they did with "unofficial" smart pointers before C++11. Such people may or may not embrace the official counterparts. This choice depends on two things: economics (e.g. how big is the code to change) and interface (e.g. their `string_view` has some special capabilities or design decisions not compatible with the standard one).
 
