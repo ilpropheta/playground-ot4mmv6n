@@ -56,7 +56,7 @@ public:
 
 This makes polymorphic deletion not compile.
 
-Anyway, the most common and flexible way to declare an interface in C++ consists in declaring a defaulted virtual destructor:
+Anyway, when in doubt, the most common and flexible way to declare an interface in C++ consists in declaring a defaulted virtual destructor:
 
 ```cpp
 class Interface
