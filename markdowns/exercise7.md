@@ -12,11 +12,28 @@ After this workshop I hope you have understood my point: **C++ is not about a si
 
 ## Adopt or adapt
 
-In my opinion, in C++ "adapting on any paradigm" means two things: first of all, you can *express your own C++ style* through your mixture of styles, idioms and paradigms. Second, you know how to adapt to different "enemies": if you decide not to use certain C++ tools is ok, but you should know how they work or you'll have troubles in the future. This is probably a simple point that holds in any discipline. It's just worth reiterating.
+In my opinion, "adapting on any paradigm" in C++ has two meanings. 
 
-Some concepts we met have been growing up in the C++ ecosystem for decades but some people do not know them yet.
+First of all, we *express our own C++ style* by mixing styles, idioms and paradigms. We are not tied with any specific paradigm.
 
-Other concepts are more new and debatable, open to balancing compromises and often they imply to use a certain "style". For instance, `std::optional`, that has been in the industry (and in many other languages) for many years but it is a competitor of other styles and ways to handle errors.
+Second, we are ready to adapt to different "enemies". We can reject certain idioms and tools, but we should know how they work. Otherwise, we'll have troubles in the future when we'll meet them in action. This is probably a simple point that holds in any discipline. It's just worth reiterating it. Don't be like Chuck Norris at the Colosseum (*The Way of the Dragon*)!
+
+About *adaptability*, Bruce Lee advocated the idea of "being fluid and flexible like water". You probably know his famous expression "be water my friend". This idea comes from [Taoism](https://en.wikipedia.org/wiki/Taoism):
+
+> Water is fluid, soft, and yielding. But water will wear away rock, which is rigid and cannot yield. As a rule, whatever is fluid, soft, and yielding will overcome whatever is rigid and hard. This is another paradox: what is soft is strong - Lao Tzu
+
+Adapting in C++ is mandatory. We do not have strict and universal guidelines to follow. Many times we should just swing and balance many competing tradeoffs.
+
+Sure, we have very good and wise idioms. Thus many times our decisions are seamless, like being in "autopilot mode". The more we *practice*, the more fluent we are.
+
+Some concepts we have met today have been growing up in the C++ ecosystem for decades. Yet some people do not know them. Don't join such people.
+
+Other concepts are more new and debatable, open to balancing compromises and often they imply to commit to a certain "style". For instance, `std::optional`, that has been in the industry (and in many other languages) for many years but it is a competitor of other styles and ways to handle errors. Be open to take in consideration new styles and idioms. That's another guideline from Bruce Lee:
+
+> Research your own experience.
+Absorb what is useful.
+Reject what is useless.
+Add what is specifically your own.
 
 We are in software. We balance competing tradeoffs.
 
