@@ -22,20 +22,18 @@ About *adaptability*, Bruce Lee advocated the idea of "being fluid and flexible 
 
 > Water is fluid, soft, and yielding. But water will wear away rock, which is rigid and cannot yield. As a rule, whatever is fluid, soft, and yielding will overcome whatever is rigid and hard. This is another paradox: what is soft is strong - Lao Tzu
 
-Adapting in C++ is mandatory. We do not have strict and universal guidelines to follow. Many times we should just swing and balance many competing tradeoffs.
+**Adapting in C++ is mandatory**. We do not have strict and universal guidelines to follow. Many times we should just swing and balance competing tradeoffs.
 
-Sure, we have very good and wise idioms. Thus many times our decisions are seamless, like being in "autopilot mode". The more we *practice*, the more fluent we are.
+Clearly we have very good and wise idioms. Thus many times our decisions are seamless, like being in "autopilot mode". The more we *practice*, the more fluent we are.
 
 Some concepts we have met today have been growing up in the C++ ecosystem for decades. Yet some people do not know them. Don't join such people.
 
-Other concepts are more new and debatable, open to balancing compromises and often they imply to commit to a certain "style". For instance, `std::optional`, that has been in the industry (and in many other languages) for many years but it is a competitor of other styles and ways to handle errors. Be open to take in consideration new styles and idioms. That's another guideline from Bruce Lee:
+Other concepts are more new and debatable, open to balancing compromises and often they imply to commit to a certain "style". For instance, `std::optional`, that has been in the industry (and in many other languages) for many years but it is a competitor of other styles and ways to handle errors. Be open to *take in consideration* new styles and idioms. That's Bruce Lee's [Jeet Kune Do](https://en.wikipedia.org/wiki/Jeet_Kune_Do)'s manifesto:
 
 > Research your own experience.
 Absorb what is useful.
 Reject what is useless.
 Add what is specifically your own.
-
-We are in software. We balance competing tradeoffs.
 
 ## Recap
 
