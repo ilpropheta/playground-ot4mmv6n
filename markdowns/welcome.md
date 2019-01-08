@@ -18,13 +18,13 @@ Bruce Lee was used to say:
 
 > The best fighter is not a Boxer, Karate or Judo man. The best fighter is someone who can adapt on any style.
 
-C++ implements this idea very well, since it's independent from any particular programming paradigm or practice.
+C++ implements this idea very well, since it is **independent from any particular programming paradigm or style**.
 
-After the revolution brought by C++11, other paradigms - like functional - became a bit simpler with C++11, and then people have started mixing styles more often than before.
+You can design object oriented applications with a bit of functional touch, crunch data from hardware very quickly through C-like interfaces, craft sophisticated generic libraries, make compile-time code generators, and so on.
 
-In my opinion, the next generations of C++ programmers should master idioms and constructs coming from different paradigms and styles, and use them conveniently.
+In my opinion, the *next generations* of C++ programmers should not be afraid of learning and using idioms and constructs coming from any paradigm and style. Since software and programming is constantly evolving, C++ programmers should practice **adapting** and **adjusting** to change, conveniently.
 
-In this workshop we'll meet some important styles and idioms of C++ programming.
+In this workshop we'll put our hands on a simple project applying different paradigms and idioms.
 
 ## Playground structure
 
