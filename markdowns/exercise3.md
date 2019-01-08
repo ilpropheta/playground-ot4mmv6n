@@ -31,9 +31,7 @@ At the end of this section, we'll face with a challenge about generic programmin
 
 ## Tuples
 
-In programming, when we create new types, we *compose* other types together.
-
-In type theory, we have two types of combinations: **products** and **sums**. The result of such a composition is called **Algebraic Data Type** (*ADT*).
+In type theory, when we create new types, we *compose* other types together. There are two main types of combinations: **products** and **sums**. The result of such a composition is called **Algebraic Data Type** (*ADT*).
 
 A **product** is a way to combine multiple types into one (e.g. `struct`, `tuple`) and it's probably the most common type of composition of types:
 
