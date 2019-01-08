@@ -30,12 +30,14 @@ Some concepts we have met today have been growing up in the C++ ecosystem for de
 
 Other concepts are more new and debatable, open to balancing compromises and often they imply to commit to a certain "style". For instance, `std::optional`, that has been in the industry (and in many other languages) for many years but it is a competitor of other styles and ways to handle errors. Be open to *take in consideration* new styles and idioms. As Bruce Lee was used to advocate his [Jeet Kune Do](https://en.wikipedia.org/wiki/Jeet_Kune_Do):
 
-> Research your own experience.
-> Absorb what is useful.
-> Reject what is useless.
-> Add what is specifically your own.
+```
+Research your own experience.
+Absorb what is useful.
+Reject what is useless.
+Add what is specifically your own.
+```
 
-"Add what is specifically your own" is a very important point. You should not accept things as "ending". You should go beyond, setting "no limit as a limit". With C++, we have enough *control* to push the language to the limit. But remember, "a great C++ comes with a great responsibility". That's another movie, though :)
+"Add what is specifically your own" is a very important point. You should not accept things as "endings". You should go beyond, setting "no limit as a limit". With C++, we have enough *control* to push the language to the limit. But remember, "a great C++ comes with a great responsibility". That's another movie, though :)
 
 ## Recap
 
