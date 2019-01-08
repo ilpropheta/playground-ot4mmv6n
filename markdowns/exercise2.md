@@ -72,7 +72,7 @@ As you learned from the previous section, declaring a `default`ed virtual destru
 
 ### Rule of Five, slices and clones
 
-This section does not really concern interfaces but *stateful* polymorphic bases.
+This section does not really concern interfaces but only *stateful* polymorphic bases.
 
 According to the language rules, declaring a virtual destructor prevents move operators from being automatically generated and deprecates the generation of copy operators. This should not be a problem for interfaces because they **should never** contain any data. For instance:
 
@@ -176,8 +176,6 @@ Continue Reading:
 
 * [C.21: If you define or =delete any default operation, define or =delete them all](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rc-five)
 * [C.67: A polymorphic class should suppress copying](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rc-copy-virtual)
-
-### The idiom
 
 ### `shared_ptr` does some magic
 
