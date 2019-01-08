@@ -31,9 +31,11 @@ At the end of this section, we'll face with a challenge about generic programmin
 
 ## Tuples
 
-An **algebraic data type** is a data type defined out of a combination of two constructions: **products** and **sums**. Thus, you can think of an *ADT* as a composite type, formed by combining other types.
+In programming, when we create new types, we *compose* other types together.
 
-A **product** is a way to combine multiple types into one (e.g. `struct`, `tuple`).
+In type theory, we have two types of combinations: **products** and **sums**. The result of such a composition is called **Algebraic Data Type** (*ADT*).
+
+A **product** is a way to combine multiple types into one (e.g. `struct`, `tuple`) and it's probably the most common type of composition of types:
 
 Example:
 
@@ -46,20 +48,20 @@ struct Record
 };
 ```
 
-A **sum** holds a value that could take on several different, but fixed, types (e.g. `variant`).
+On the other hand, a **sum** holds a value that could take on several different, but fixed, types (e.g. `variant`).
 
 Example:
 
 ```cpp
-using Data = std::variant<Rock, Paper, Scissors>;
+using Move = std::variant<Rock, Paper, Scissors>;
 
-Data player1 = Rock;
-Data player2 = Paper;
+Move player1 = Rock; // commit to Rock
+Move player2 = Paper; // commit to Paper
 
 play(player1, player2);
 ```
 
-A **tuple** is a fixed-size and ordered collection of heterogeneous values - a product type.
+A **tuple** belongs to the former category: it is a fixed-size and ordered collection of heterogeneous values - a product type.
 
 In C++, tuples are supported at the library level - not in the language itself:
 
