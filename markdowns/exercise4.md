@@ -40,9 +40,11 @@ I have added it to the workshop not only because it's important and useful, but 
 
 `string_view` is an example of what we mean in C++ with the expression **0-overhead high level abstractions**. We have a high level abstraction on top of a raw buffer of characters (often referred to as *C-style buffer*, a term more for **Systems Programming** than for Application-level programming).
 
+Other languages have been imitating this style of programming, gaining amazing performance. For instance, have a look at [this article on .net core](https://medium.com/@antao.almada/how-to-use-span-t-and-memory-t-c0b126aae652).
+
 Many people already use such objects (they are, basically, *smart references*) like they did with "unofficial" smart pointers before C++11. Such people may or may not embrace the official counterparts. This choice depends on two things: economics (e.g. how big is the code to change) and interface (e.g. their `string_view` has some special capabilities or design decisions not compatible with the standard one).
 
-However, people who are not using `string_view` yet, should consider learn how to. Not only because it *can be* convenient, but also because they should adapt to the future. Just like `auto`, *smart pointers* or *lambdas*, if you don't want to adopt them, you should adapt to people adopting them!
+However, people who are not using `string_view` yet, should consider learn how to. Not only because it *can be* convenient, but also because they should adapt to the future. Just like it happened for `auto`, *smart pointers* and *lambdas*: if you don't want to adopt them, you should get ready to adapt to people adopting them!
 
 Continue reading:
 
