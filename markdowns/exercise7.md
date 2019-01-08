@@ -10,7 +10,7 @@ The best is yet to come: you should delve into the topics you liked the most and
 
 After this workshop I hope you have understood my point: **C++ is not about a single paradigm**. C++ does not have strict style rules either. This is both a pros and cons of the language ("a great C++ comes with great responsibility"). We can just try narrowing down the range of alternatives with openness to new tools and with balancing compromises. As Bruce Lee was used to say: *the best fighter is someone who can adapt on any style*, we can reshape as *the best C++ programmer is someone who can adapt on any paradigm*. 
 
-## Adopt or adapt
+## 
 
 In my opinion, "adapting on any paradigm" in C++ has two meanings. 
 
@@ -28,12 +28,14 @@ Clearly we have very good and wise idioms. Thus many times our decisions are sea
 
 Some concepts we have met today have been growing up in the C++ ecosystem for decades. Yet some people do not know them. Don't join such people.
 
-Other concepts are more new and debatable, open to balancing compromises and often they imply to commit to a certain "style". For instance, `std::optional`, that has been in the industry (and in many other languages) for many years but it is a competitor of other styles and ways to handle errors. Be open to *take in consideration* new styles and idioms. That's Bruce Lee's [Jeet Kune Do](https://en.wikipedia.org/wiki/Jeet_Kune_Do)'s manifesto:
+Other concepts are more new and debatable, open to balancing compromises and often they imply to commit to a certain "style". For instance, `std::optional`, that has been in the industry (and in many other languages) for many years but it is a competitor of other styles and ways to handle errors. Be open to *take in consideration* new styles and idioms. As Bruce Lee was used to advocate his [Jeet Kune Do](https://en.wikipedia.org/wiki/Jeet_Kune_Do):
 
 > Research your own experience.
-Absorb what is useful.
-Reject what is useless.
-Add what is specifically your own.
+> Absorb what is useful.
+> Reject what is useless.
+> Add what is specifically your own.
+
+"Add what is specifically your own" is a very important point. You should not accept things as "ending". You should go beyond, setting "no limit as a limit". With C++, we have enough *control* to push the language to the limit. But remember, "a great C++ comes with a great responsibility". That's another movie, though :)
 
 ## Recap
 
