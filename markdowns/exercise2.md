@@ -2,7 +2,7 @@
 
 Without a doubt, the **Object-Oriented** paradigm contributed to the diffusion of C++ in the industry in the early 90s.
 
-The concept of **Interface** is one of the pillars of Object Orientation. An interface is, simply, a description of the actions that an object can do.
+The concept of **Interface** is one of the pillars of object orientation. An interface is, simply, a description of the actions that an object can do.
 
 C++ does not really have a built-in support for interfaces like Java or C#. A way to declare an interface in C++ constists in declaring an abstract class with pure virtual functions:
 
