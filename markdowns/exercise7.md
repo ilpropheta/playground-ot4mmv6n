@@ -21,7 +21,7 @@ The best is yet to come: you should delve into the topics you liked the most and
 
 > Only a sith lord deals in absolutes
 
-After this workshop I hope you have understood my point: **C++ is not about a single paradigm**. C++ does not have strict style rules either. This is both good and bad ("a great C++ comes with great responsibility"). We can just try narrowing down the range of alternatives with openness to new tools and with balancing compromises. As Bruce Lee was used to say: *the best fighter is someone who can adapt on any style*, we can reshape as *the best C++ programmer is someone who can adapt on any style*. 
+After this workshop I hope you have understood my point: **C++ is not about a single paradigm**. C++ does not have strict style rules either. This is both good and bad ("a great C++ comes with great responsibility"). You can just try narrowing down the range of alternatives with openness to new tools and with balancing compromises. As Bruce Lee was used to say: *the best fighter is someone who can adapt on any style*, we can reshape as *the best C++ programmer is someone who can adapt on any style*. 
 
 ## The best C++ programmer can adapt on any style
 
@@ -37,11 +37,11 @@ About *adaptability*, Bruce Lee advocated the idea of "being fluid and flexible 
 
 **Adapting in C++ is mandatory**. We do not have strict and universal guidelines to follow. Many times we should just swing and balance competing tradeoffs.
 
-Clearly we have very good and wise idioms. Thus many times our decisions are seamless, like being in "autopilot mode". The more we *practice*, the more fluent we are. Whenever new tools are merged into the standard, we have an opportunity to ditch our own implementations of the same concepts and constructs. "Adding enables removing" as Kate Gregory once said. This requires a *vigilant* approach to programming in C++ and it should be a core part of the development process. As in life, what works now might not work for us forever, and it's important to have awareness to change and grow.
+Clearly **we have very good and wise idioms**. Thus many times our decisions are seamless, like being in "autopilot mode". The more we *practice*, the more fluent we are. Whenever new tools are merged into the standard, we have an opportunity to ditch our own implementations of the same concepts and constructs. "Adding enables removing" as Kate Gregory once said. This requires a *vigilant* approach to programming in C++ and it should be a core part of the development process. As in life, what works now might not work for us forever, and it's important to have awareness to change and grow.
 
 Some concepts we have met today have been growing up in the C++ ecosystem for decades. Yet some people do not know them. Don't join such group of people.
 
-Other concepts are more new and debatable, open to balancing compromises and often they imply to commit to a certain "style". For instance, `std::optional`, that has been in the industry (and in many other languages) for many years but it is a competitor of other styles and ways to handle errors. Be open to *take in consideration* new styles and idioms. As Bruce Lee was used to wrap up his [Jeet Kune Do](https://en.wikipedia.org/wiki/Jeet_Kune_Do):
+Other concepts are more new and debatable, those require balancing compromises and often imply to commit to a certain style. For instance, `std::optional`, that has been in the industry (and in many other languages) for many years is a competitor of other styles and ways to handle errors. What is better? Sometimes we can answer only in a specific case. We should be open to *take in consideration* new styles, idioms and tools. As Bruce Lee was used to summarize his [Jeet Kune Do](https://en.wikipedia.org/wiki/Jeet_Kune_Do):
 
 ```
 Research your own experience.
@@ -50,4 +50,4 @@ Reject what is useless.
 Add what is specifically your own.
 ```
 
-"Add what is specifically your own" is a very important point. You should not accept things as "endings". You should go beyond, setting "no limit as a limit". With C++, we have enough *control* to push the language to the limit. But remember, "a great C++ comes with a great responsibility". But that's another story... :)
+"Add what is specifically your own" means that things sometimes need "customization" and they should not be seen as "endings". We should go beyond, setting "no limit as a limit". With C++, we have enough freedom and *control* to push it to the limit. However we should remember that "a great C++ comes with a great responsibility". But that's another story... :)
