@@ -274,7 +274,7 @@ private:
 };
 ```
 
-Once you have packed your values into `tuple`s, it's like having a "list" at compile-time. You can do manipulations, concatenation, search, etc.
+Once you have packed your values into `tuple`s, it's like having a "list" at compile-time. You can do manipulations, concatenation, search, etc, and the operations are not limited to what the language provides: as usual, we have a very sophisticated generic programming environment where we can craft our own functions and code generators.
 
 ## Hands on!
 
