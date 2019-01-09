@@ -105,9 +105,11 @@ Generally, we never work explicitly with lifetime code but we use general-purpos
 
 Such proxies (or give them another name you like) have some well-known lifetime semantics, that is generally tied with *copy* and *move* operators. For example, `std::vector` can be fully copied into another instance. On the other hand, `std::thread` cannot be copied but only moved because the ownership of threads is *unique*.
 
+Applying the rule of zero is like a quest for *liberation*: we make our business-code classes free from any ownership responsibility. So the question is: how do we handle dynamic resources without explicit constructs?
+
 For the rest of this section, we'll learn how to use standard general-purpose tools for dynamic lifetime management that will help adopt the rule of zero.
 
-## Getting a glimpse of smart pointers
+## A glimpse of Smart Pointers
 
 If you feel you need to use pointers (first consider if you really do), you would normally want to use a *smart pointer* as this can alleviate many of the problems with raw pointers, mainly forgetting to delete the object and leaking memory.
 
@@ -214,7 +216,7 @@ Continue Reading:
 * [Microsoft on Smart Pointers](https://msdn.microsoft.com/en-us/library/hh279674.aspx)
 * [Smart developers use smart pointers](https://www.fluentcpp.com/2017/08/22/smart-developers-use-smart-pointers-smart-pointers-basics/)
 
-### Hands on!
+## Hands on!
 
 You've just learnt how good smart pointers are and you want to impress your boss by using them in **MicroUrl**.
 
