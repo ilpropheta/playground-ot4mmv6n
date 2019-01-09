@@ -18,13 +18,15 @@ Bruce Lee was used to say:
 
 > The best fighter is not a Boxer, Karate or Judo man. The best fighter is someone who can adapt on any style.
 
-C++ implements this idea very well, since it is **independent from any particular programming paradigm or style**.
+Bruce Lee's quote has two meanings: first of all, Bruce Lee could **not accept to obey to a single discipline or style** because any discipline or teaching is "conclusive" - all the answers have been already answered. What works for you can work differently for me. You should always *express yourself* and for this reason you should not limit yourself into a single doctrine. That's why for Bruce Lee was natural just to mix several styles and arts into his own *expression of the human body*. For instance, did you know that Bruce Lee was a professional dancer?
 
-You can design object oriented applications with a bit of functional touch, crunch data from hardware very quickly through C-like interfaces, craft sophisticated generic libraries, make compile-time code generators, and so on.
+C++ implements this idea very well, since it is **independent from any particular programming paradigm or style**. You can design object oriented applications with a bit of functional touch, crunch data from hardware very quickly through C-like interfaces, craft sophisticated generic libraries, make compile-time code generators, and so on.
 
-In my opinion, the *next generations* of C++ programmers should not be afraid of learning and using idioms and constructs coming from any paradigm and style. Since software and programming is constantly evolving, C++ programmers should practice **adapting** and **adjusting** to change, conveniently.
+The second aspect of his quote is about **adaptability**: for Bruce Lee, life is a constant process of changing. What works now might not work forever. If we you do not adapt to change, you are going to have troubles. Bruce Lee represented this concept in his famous fighting with *Chuck Norris* at the Colosseum (*The Way of the Dragon*): Chuck Norris was winning the match so Bruce Lee adapted to the style of his opponent and changed something in his movements. Chuck did not and for this reason he died.
 
-In this workshop we'll put our hands on a simple project applying different paradigms and idioms.
+C++ grows very quickly. New tools and concepts are merged into the standard once every 3 years now. This requires a *vigilant* approach to C++ development. You should not ignore such changes because you might be involved in projects with people who use recent additions. Or you might just lose opportunities to simplify your code. You should be ready to **adapt** and **adjust** to change, conveniently.
+
+In this interactive session, we will put our hands on a simple project where we will work on several aspects by applying different paradigms and idioms.
 
 ## Playground structure
 
