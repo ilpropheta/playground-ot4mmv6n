@@ -27,9 +27,9 @@ After this workshop I hope you have understood my point: **C++ is not about a si
 
 In my opinion, "adapting on any style" in C++ has two meanings. 
 
-First of all, we *express our own C++ style* by mixing idioms and paradigms. We are not tied with any specific paradigm.
+First of all, we *express our own C++ style* by mixing idioms and paradigms. We are not tied with any specific paradigm. We are not afraid of using together concepts diametrically opposed to one another. We should do it responsibly though.
 
-Second, we are ready to adapt to different "enemies". We can reject certain idioms and tools, but we should know how they work. Otherwise, we'll have troubles in the future when we'll meet them in action. This is probably a simple point that holds in any discipline. It's just worth reiterating it. Don't be like Chuck Norris at the Colosseum (*The Way of the Dragon*)!
+Second, we are ready to adapt to different kind of "enemies". We can reject certain idioms and tools, but we should know how they work. Otherwise, we'll have troubles in the future when we'll meet them in action. This is probably a simple point that holds in any discipline. It's just worth reiterating it. Don't be like Chuck Norris at the Colosseum (*The Way of the Dragon*)!
 
 About *adaptability*, Bruce Lee advocated the idea of "being fluid and flexible like water". You probably know his famous expression "be water my friend". This idea comes from [Taoism](https://en.wikipedia.org/wiki/Taoism):
 
