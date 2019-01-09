@@ -21,7 +21,7 @@ The best is yet to come: you should delve into the topics you liked the most and
 
 > Only a sith lord deals in absolutes
 
-After this workshop I hope you have understood my point: **C++ is not about a single paradigm**. C++ does not have strict style rules either. This is both a pros and cons of the language ("a great C++ comes with great responsibility"). We can just try narrowing down the range of alternatives with openness to new tools and with balancing compromises. As Bruce Lee was used to say: *the best fighter is someone who can adapt on any style*, we can reshape as *the best C++ programmer is someone who can adapt on any style*. 
+After this workshop I hope you have understood my point: **C++ is not about a single paradigm**. C++ does not have strict style rules either. This is both good and bad ("a great C++ comes with great responsibility"). We can just try narrowing down the range of alternatives with openness to new tools and with balancing compromises. As Bruce Lee was used to say: *the best fighter is someone who can adapt on any style*, we can reshape as *the best C++ programmer is someone who can adapt on any style*. 
 
 ## The best C++ programmer can adapt on any style
 
