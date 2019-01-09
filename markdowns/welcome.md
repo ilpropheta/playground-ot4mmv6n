@@ -24,7 +24,10 @@ C++ implements this idea very well, since it is **independent from any particula
 
 The second aspect of his quote is about **adaptability**: for Bruce Lee, life is a constant process of changing. What works now might not work forever. If you do not adapt to change, you are going to have troubles. Bruce Lee represented this concept in his famous fighting with *Chuck Norris* at the Colosseum (*The Way of the Dragon*): Chuck Norris was winning the match so Bruce Lee adapted to the style of his opponent and changed something in his movements. Chuck did not and for this reason he died.
 
-C++ grows very quickly. New tools and concepts are merged into the standard once every 3 years now. This requires a *vigilant* approach to C++ development. You should not ignore such changes because you might be involved in projects with people who use recent additions. Or you might just lose opportunities to simplify your code. You should be ready to **adapt** and **adjust** to change, conveniently.
+C++ grows very quickly. New tools and concepts are merged into the standard once every 3 years now. This requires a *vigilant* approach to C++ development. First of all, classic idioms and language mechanics might change. You should be ready to handle such changes. 
+Even though you decide to ignore langauge and library additions, other people might not. If you get involved in projects with such people, the knowledge of the new will be mandatory.
+In other cases, you might just lose opportunities to simplify your code. 
+So, the message is: you should be ready to **adapt** and **adjust** to change, conveniently.
 
 In this interactive session, we will put our hands on a simple project where we will work on several aspects by applying different paradigms and idioms.
 
