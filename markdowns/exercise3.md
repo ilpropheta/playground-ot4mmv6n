@@ -202,7 +202,7 @@ Continue Reading:
 
 ## `std::tie` idiom
 
-Structure bindings serves to destructure a tuple-like object into its components. Many times we need to do the inverse operation: make a tuple from some unstructured data. Packing data into a tuple opens doors to use tuple's interface on such data.
+Structure bindings serves to destructure a tuple-like object into its components. Many times we need to do the opposite operation: make a tuple from some unstructured data. Packing data into a tuple opens doors to use tuple's interface on such data.
 
 Since creating a tuple involves creating a new object, possibly we do not want to copy data. We would like to *reference* such data, as we do with structure bindings. That's a job for `std::tie`: a function which creates a `std::tuple` of **references** to the parameters we provide:
 
