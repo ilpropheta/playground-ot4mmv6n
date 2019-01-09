@@ -177,6 +177,8 @@ shared_ptr<Resource> owner1 = Acquire();
 
 `weak_ptr` models temporary ownership: when an object needs to be accessed only if it exists, and it may be deleted at any time by someone else, `weak_ptr` is used to track the object, and it is converted to `shared_ptr` to assume temporary ownership. If the original `shared_ptr` is destroyed at this time, the object's lifetime is extended until the temporary `shared_ptr` is destroyed as well.
 
+Smart pointers are general-purpose tools. If they do not fit your scenario, write your own! **You have control** to do it. But remember to be "responsible"!
+
 ## Scope Guard
 
 We conclude this section by recalling a classic idiom that is a general-purpose *finalizer*: an operation always executed at the end of the scope.
