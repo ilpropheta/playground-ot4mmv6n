@@ -50,4 +50,4 @@ Reject what is useless.
 Add what is specifically your own.
 ```
 
-"Add what is specifically your own" is a very important point. You should not accept things as "endings". You should go beyond, setting "no limit as a limit". With C++, we have enough *control* to push the language to the limit. But remember, "a great C++ comes with a great responsibility". That's another movie, though :)
+"Add what is specifically your own" is a very important point. You should not accept things as "endings". You should go beyond, setting "no limit as a limit". With C++, we have enough *control* to push the language to the limit. But remember, "a great C++ comes with a great responsibility". But that's another story... :)
