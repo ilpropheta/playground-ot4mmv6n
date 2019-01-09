@@ -39,8 +39,6 @@ About *adaptability*, Bruce Lee advocated the idea of "being fluid and flexible 
 
 Clearly we have very good and wise idioms. Thus many times our decisions are seamless, like being in "autopilot mode". The more we *practice*, the more fluent we are. Whenever new tools are merged into the standard, we have an opportunity to ditch our own implementations of the same concepts and constructs. "Adding enables removing" as Kate Gregory once said. This requires a *vigilant* approach to programming in C++ and it should be a core part of the development process. As in life, what works now might not work for us forever, and it's important to have awareness to change and grow.
 
-Moreover, knowing the C++ Standard is important because **adding enables removing**. The more concepts and constructs we add, the more likely we could remove our own implementations of those. It's a way to liberate our projects from what is useless and not necessary (to maintain, test and debug).
-
 Some concepts we have met today have been growing up in the C++ ecosystem for decades. Yet some people do not know them. Don't join such group of people.
 
 Other concepts are more new and debatable, open to balancing compromises and often they imply to commit to a certain "style". For instance, `std::optional`, that has been in the industry (and in many other languages) for many years but it is a competitor of other styles and ways to handle errors. Be open to *take in consideration* new styles and idioms. As Bruce Lee was used to wrap up his [Jeet Kune Do](https://en.wikipedia.org/wiki/Jeet_Kune_Do):
