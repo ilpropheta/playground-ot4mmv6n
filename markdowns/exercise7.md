@@ -37,7 +37,7 @@ About *adaptability*, Bruce Lee advocated the idea of "being fluid and flexible 
 
 **Adapting in C++ is mandatory**. We do not have strict and universal guidelines to follow. Many times we should just swing and balance competing tradeoffs.
 
-Clearly we have very good and wise idioms. Thus many times our decisions are seamless, like being in "autopilot mode". The more we *practice*, the more fluent we are.
+Clearly we have very good and wise idioms. Thus many times our decisions are seamless, like being in "autopilot mode". The more we *practice*, the more fluent we are. Moreover, knowing the C++ Standard is important because **adding enables removing**. The more concepts and constructs we add, the more likely we could remove our own implementations of those. It's a way to liberate our projects from what is useless and not necessary (to maintain, test and debug).
 
 Some concepts we have met today have been growing up in the C++ ecosystem for decades. Yet some people do not know them. Don't join such group of people.
 
