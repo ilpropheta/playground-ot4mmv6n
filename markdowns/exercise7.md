@@ -41,7 +41,7 @@ Clearly **we have very good and wise idioms**. Thus many times our decisions are
 
 Some concepts we have met today have been growing up in the C++ ecosystem for decades. Yet some people do not know them. Don't join such group of people.
 
-Other concepts are more new and debatable, those require balancing compromises and often imply to commit to a certain style. For instance, `std::optional`, that has been in the industry (and in many other languages) for many years is a competitor of other styles and ways to handle errors. What is better? Sometimes we can answer only in a specific case. We should be open to *take in consideration* new styles, idioms and tools. As Bruce Lee was used to summarize his [Jeet Kune Do](https://en.wikipedia.org/wiki/Jeet_Kune_Do):
+Other concepts are more new and debatable, those require balancing compromises and often imply to commit to a certain style. For instance, `std::optional`, that has been in the industry (and in many other languages) for many years is a competitor of other styles and ways to handle errors. What is better? Sometimes the answer *depends on* the context. We should be **open** to *take in consideration* new styles, idioms and tools. As Bruce Lee was used to summarize his [Jeet Kune Do](https://en.wikipedia.org/wiki/Jeet_Kune_Do):
 
 ```
 Research your own experience.
