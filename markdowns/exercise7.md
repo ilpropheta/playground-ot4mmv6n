@@ -50,4 +50,5 @@ Reject what is useless.
 Add what is specifically your own.
 ```
 
-"Add what is specifically your own" means that things sometimes need "customization" and they should not be seen as "endings". Do we need a special smart pointer? Let's go for it! We should go beyond, setting "no limit as a limit". With C++, we have enough freedom and *control* to push it to the limit. However we should remember that "a great C++ comes with a great responsibility". But that's another story... :)
+"Add what is specifically your own" means that things sometimes need "customization". Strict rules and discipline are just rigid "endings". Sometimes we just cannot accept the *state of the art*. We need to define our own *state of the art*.
+*Do we need a special smart pointer?* Let's go for it! With C++, we have enough freedom and *control* to go beyond the limits. However we should remember that "a great C++ comes with a great responsibility". But that's another story... :)
