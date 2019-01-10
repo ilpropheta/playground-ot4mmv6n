@@ -14,7 +14,9 @@ An instance of the `string_view` class can be thought of as a "view" into an exi
 
 `string_view` has implicit conversion constructors from both `const char*` and `const string&`, and since `string_view` doesn’t copy, there is no O(n) memory penalty for making a hidden copy. In the case where a `const string&` is passed, the constructor runs in O(1) time. In the case where a `const char*` is passed, the constructor invokes a `strlen()` automatically (or you can use the two-parameter `string_view` constructor).
 
-`string_view`'s interface recalls `string`'s. For example:
+`string_view` describes the minimum common interface necessary to read string data. It's a return to the basic essence of a *string* as a sequence of characters. It doesn’t require that the data be null-terminated, and doesn’t place any restrictions on the data’s lifetime. This gives you type erasure for "free", as a function accepting a `string_view` can be made to work with any string-like type, without making the function into a template, or constraining the interface of that function to a particular subset of string types.
+
+`string_view`'s interface recalls `const string`'s. For example:
 
 ```cpp
 string_view sv = "this is a string view";
@@ -30,7 +32,7 @@ string_view sv = "    trim me";
 sv.remove_prefix(std::min(sv.find_first_not_of(" "), sv.size())); // sv is "trim me"
 ```
 
-Remember that `string_view` **is not necessarily NUL-terminated**.
+Remember that `string_view` **is not required to be null-terminated**.
 
 ### Cheap abstractions
 
@@ -49,6 +51,7 @@ However, people who are not using `string_view` yet, should consider learn how t
 Continue reading:
 
 * [C++17 string_view](https://skebanga.github.io/string-view/)
+* [std::string_view: The Duct Tape of String Types](https://blogs.msdn.microsoft.com/vcblog/2018/08/21/stdstring_view-the-duct-tape-of-string-types/)
 * [string_view odi et amo](https://marcoarena.wordpress.com/2017/01/03/string_view-odi-et-amo/)
 * [Tip of the Week #1: string_view](https://abseil.io/tips/1)
 
