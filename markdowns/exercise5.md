@@ -327,11 +327,15 @@ auto maxElemIt = std::max_element(begin(m), end(m), [](auto& left, auto& right) 
 
 ```
 
-Post-modern C++ programmers should know how to exploit all the algorithms and containers of the STL. In C++20 this requirement will be even more important with the introduction of [ranges](https://en.cppreference.com/w/cpp/ranges).
-
 Although STL algorithms have some limits (e.g. lack of composition), they are very powerful and flexible. 
 
-This topic may be covered in a future workshop, for now we just face with a little challenge:
+This topic may be covered in a future workshop.
+
+## A jump into the future
+
+Post-modern C++ programmers should know how to exploit all the algorithms and containers of the STL. In C++20 this requirement will be even more important with the introduction of [ranges](https://en.cppreference.com/w/cpp/ranges).
+
+
 
 ## Hands on!
 
