@@ -14,7 +14,9 @@ T sum(T a, T b)
 
 `sum` works on *any type* supporting `operator+`.
 
-Templates are extensively used across the entire C++ standard library.
+Templates are extensively used across the entire C++ standard library that has been developed with Generic Programming (**Alexander Stepanov**, one of the fathers and advocate of generic programming, is one of the primary designer and implementer of the C++ Standard Template Library).
+
+*Algorithms* are decoupled from *containers* through the generic *iterator* abstraction.
 
 Generic Programming in C++ consists of several techniques, such as:
 
