@@ -335,7 +335,32 @@ This topic may be covered in a future workshop.
 
 Post-modern C++ programmers should know how to exploit all the algorithms and containers of the STL. In C++20 this requirement will be even more important with the introduction of [ranges](https://en.cppreference.com/w/cpp/ranges).
 
+Ranges move the generic interface of algorithms from iterators to *sequences* (ranges). A range can be loosely thought of a pair of iterators, although they need not be implemented that way.
 
+The primary benefits of ranges are:
+
+* readability (you pass only a single argument to algorihtms)
+* composability (a single range object permits pipelines of operations)
+
+Ranges is built on top of functional concepts, just like [C#'s Linq](https://docs.microsoft.com/en-us/dotnet/csharp/linq/).
+
+For example, compare this python snippet:
+
+```python
+ up=sum(map(lambda (a,b): a>b, zip(low[1:], close)))
+ down=sum(map(lambda (a,b): a<b, zip(high[1:], close)))
+ print("%d %d" % (up, down))
+```
+
+With this C++20 one:
+
+```cpp
+auto up = ranges::accumulate(view::zip_with(greater<>{}, view::tail(low), close), 0);
+auto down = ranges::accumulate(view::zip_with(less<>{}, view::tail(high), close), 0);
+cout << up << " " << down;
+```
+
+Get ready to embrace this new powerful union of generic and functional programming.
 
 ## Hands on!
 
