@@ -12,7 +12,7 @@ T sum(T a, T b)
 }
 ```
 
-`sum` works on *any type* supporting `operator+`.
+`sum` works on *any type* supporting `operator+`. This *requirement* is *implicit*. From C++20, *concepts* will enable such requirements to be *explicit* and will dramatically improve life of programmers and compilers!
 
 Templates are extensively used across the entire C++ standard library that has been developed with Generic Programming (**Alexander Stepanov**, one of the fathers and advocate of generic programming, is one of the primary designer and implementer of the C++ Standard Template Library).
 
