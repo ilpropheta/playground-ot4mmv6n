@@ -333,7 +333,7 @@ inline bool operator<(const UrlInfo& left, const UrlInfo& right)
 ```
 :::
 
-## Tuples unpacking - Hands on!
+## Bonus: Tuples unpacking
 
 Let's get our hands dirty just by facing a final - easy - challenge involving both tuples and generic programming.
 
@@ -360,6 +360,8 @@ find_if(begin(v), end(v), unpack_to([](auto name, auto urls, auto clicks) {
 ```
 
 You are intrigued by James' utility and you decide to roll your own implementation. Luke, a friend of you, has some insights for you and left a comment in the code.
+
+### Hands on!
 
 Can you implement `unpack_to`?
 
