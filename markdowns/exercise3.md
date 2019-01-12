@@ -1,6 +1,6 @@
 # Generic Programming and tuples
 
-**Generic Programming** is a style of programming in which functionalities and components are developed in terms of types that will be known at a later time - when they will be instantiated.
+**Generic Programming** is a style of programming in which functionalities and components are developed in terms of types that will be known at a later time - when they will be instantiated. Such components and functionalities can be associated with a *constraint*, which specifies the *requirements* on such types.
 
 Generic Programming in C++ is enabled by **templates** which are a powerful mechanism to generate code and take decisions at compile-time:
 
