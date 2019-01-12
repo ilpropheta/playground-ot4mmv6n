@@ -7,9 +7,8 @@ TEST_CASE("Is it always a good idea to replace const string& with string_view?",
 {
 	/*MicroUrlService service;
 	auto microGoogleCom = service.MakeMicroUrl("http://google.com");
-	REQUIRE(microGoogleCom == "https://micro.url/bM");
-
-	auto buffer = "https://micro.url/bMhttps://micro.url/bA";
-	std::string_view visitThis{ buffer, 20 };
+    
+    	std::string buffer = microGoogleCom + "https://micro.url/bA";    
+	std::string_view visitThis{ buffer.c_str(), microGoogleCom.size() };
 	REQUIRE(service.ClickUrl(visitThis) == "http://google.com");*/
 }
