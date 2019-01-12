@@ -65,7 +65,7 @@ Work on `MicroUrlService` and uniform the parameters of its public functions. De
 	 "microurl/src/ver5/tests/StringViewTest.cpp",
 	 "microurl/src/ver5/tests/SubtleTest.cpp",
 	],
-	"command": "sh /project/target/run_test.sh ver5 [stringview]"})
+	"command": "sh /project/target/run_test.sh ver5"})
 
 ### On blindly replacing `const string&` with `string_view`
 
