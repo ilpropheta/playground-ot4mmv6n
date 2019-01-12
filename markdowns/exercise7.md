@@ -35,11 +35,13 @@ About *adaptability*, Bruce Lee advocated the idea of "being fluid and flexible 
 
 > Water is fluid, soft, and yielding. But water will wear away rock, which is rigid and cannot yield. As a rule, whatever is fluid, soft, and yielding will overcome whatever is rigid and hard. This is another paradox: what is soft is strong - Lao Tzu
 
+As in life, what works now might not work for us forever, and it's important to have awareness to change and grow.
+
 **Adapting in C++ is mandatory**. We do not have strict and universal guidelines to follow. Many times we should just swing and balance competing tradeoffs.
 
-Clearly **we have very good and wise idioms**. Thus many times our decisions are seamless, like being in "autopilot mode". The more we *practice*, the more fluent we are. Whenever new tools are merged into the standard, we have an opportunity to ditch our own implementations of the same concepts and constructs. "Adding enables removing" as Kate Gregory once said. This requires a *vigilant approach*, as already said. As in life, what works now might not work for us forever, and it's important to have awareness to change and grow.
+Clearly **we have very good and wise idioms**. Thus many times our decisions are seamless, like being in "autopilot mode". The more we *practice*, the more fluent we are. Some concepts we have met today have been growing up in the C++ ecosystem for decades. Yet some people do not know them. Don't join such group of people.
 
-Some concepts we have met today have been growing up in the C++ ecosystem for decades. Yet some people do not know them. Don't join such group of people.
+Whenever new tools are merged into the standard, we have an opportunity to ditch our own implementations of the same concepts and constructs. **Adding enables removing** as Kate Gregory once said. This requires a *vigilant and responsible approach*. Time spent for **removing unnecessary things** and for **simplifying** is always worth.
 
 Other concepts are more new and debatable, those require balancing compromises and often imply to commit to a certain style. For instance, `std::optional`, that has been in the industry (and in many other languages) for many years is a competitor of other styles and ways to handle errors. What is better? Sometimes the answer *depends on* the context. We should be **open** to *take in consideration* new styles, idioms and tools. As Bruce Lee was used to summarize his [Jeet Kune Do](https://en.wikipedia.org/wiki/Jeet_Kune_Do):
 
