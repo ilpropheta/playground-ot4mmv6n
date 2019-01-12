@@ -70,11 +70,31 @@ public:
 
 As you learned from the previous section, declaring a `default`ed virtual destructor is a violation of the **rule of zero** since `Interface` does not deal with ownership. This is one rare exception - `shared_ptr` may help here (read on).
 
+Actually, since C++11, the generation of the implicitly-defined copy constructor is deprecated if a class a user-defined destructor or user-defined copy assignment operator. So relying on an implicitly generated copy operation in a class with a destructor is *deprecated*.
+
+For this reason, even though it's probably paranoia, the most futurable way to declare an interface in C++ consists in `=default`-ing all the special operators:
+
+```cpp
+class Interface
+{
+public:
+    virtual ~Interface() = default;
+    Interface(const Interface&) = default;
+    Interface(Interface&&) = default;
+    Interface& operator=(const Interface&) = default;
+    Interface& operator=(Interface&&) = default;
+    virtual void func() = 0;
+    //...
+};
+```
+
+This is commonly called (defaulted) **Rule of Five**.
+
 ### Rule of Five, slices and clones
 
 This section does not really concern interfaces but only *stateful* polymorphic bases.
 
-According to the language rules, declaring a virtual destructor prevents move operators from being automatically generated and deprecates the generation of copy operators. This should not be a problem for interfaces because they **should never** contain any data. For instance:
+As we said, according to the language rules, declaring a virtual destructor prevents move operators from being automatically generated and deprecates the generation of copy operators. This should not be a problem for interfaces because they **should never** contain any data, even though we should not rely on copies because they are deprecated. For instance:
 
 ```cpp
 class Derived : public Interface
@@ -85,33 +105,15 @@ class Derived : public Interface
 };
 
 Derived d1;
-// this copies the *base* part and moves m_spam. It's ok.
+// this copies the *base* part and moves m_spam
 auto d2 = move(d1);
 ```
 
-In general, for (stateful) polymorphic bases, this can be an issue. For this reason, a corollary consists in declaring all the special operators as `default`ed. This is called **Rule of Five**:
+In general, for (stateful) polymorphic bases, this can be an issue so we can apply the rule of five.
 
-```cpp
-class Interface
-{
-public:
-    Interface() = default;
-    
-    // the five special operators are defaulted (Rule of Five):
-    virtual ~Interface() = default;
-    Interface(const Interface&) = default;
-    Interface(Interface&&) = default;
-    Interface& operator=(const Interface&) = default;
-    Interface& operator=(Interface&&) = default;
-    
-    virtual void func() = 0;
-    //...
-};
-```
+There is now another potential issue.
 
-It's not all.
-
-If any polymorphic class declared the way we did previously is accidentally passed *by value*, we risk *slicing*: only the base portion of a derived object will be copied, and the polymorphic behavior will be corrupted.
+If any polymorphic class declared with the rule of five is accidentally passed *by value*, *slicing* happens: only the base portion of a derived object will be copied, and the polymorphic behavior will be corrupted.
 
 ```cpp
 class Derived : public Interface
@@ -160,17 +162,6 @@ f(d);
 It's clearly a tradeoff because the code above makes derived instances not **copyable** nor **movable**.
 
 However, for making deep copies of polymorphic classes we *prefer* a virtual `clone` function instead of copy construction/assignment. Continue reading the guideline [C.130](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rh-copy) for more details.
-
-As said, this should not concern interfaces. We can keep on using this simple idiom:
-
-```cpp
-class Interface
-{
-public:
-    virtual ~Interface() = default;
-    // ...pure virtual functions...
-};
-```
 
 Continue Reading:
 
