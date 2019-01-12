@@ -136,10 +136,10 @@ auto TryLookup(IdToUrlMap& m, string_view str)
     -> decltype( std::optional{std::ref(m.find(UrlToId(str))->second)} )
 {
     if (auto it = m.find(UrlToId(str)); it != end(m))
-	{
-		return std::ref(it->second);
-	}
-	return nullopt;
+    {
+        return std::ref(it->second);
+    }
+    return nullopt;
 }
 ```
 
