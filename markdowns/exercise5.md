@@ -387,7 +387,7 @@ Can you replace for loops with with C++ algorithms?
 In `MostPopular` we can use `max_element`:
 
 ```cpp
-std::string MostPopular()
+std::string MostPopular() const
 {	
 	auto maxElemIt = std::max_element(begin(m_freq), end(m_freq), [](auto& left, auto& right) {
 			return left.second < right.second;
@@ -399,10 +399,10 @@ std::string MostPopular()
 In `StartingWith` we can use `find_if`:
 	
 ```cpp
-ptrdiff_t StartingWith(std::string_view sv)
+ptrdiff_t StartingWith(std::string_view sv) const
 {
 	auto beginPrefix = m_freq.lower_bound(sv);
-	auto endPrefix = std::find_if(beginPrefix, end(m_freq), [=](const auto& p) {
+	auto endPrefix = std::find_if(beginPrefix, end(m_freq), [=](auto& p) {
 		return p.first.compare(0, sv.size(), sv) != 0;
 	});
 	return std::distance(beginPrefix, endPrefix);
