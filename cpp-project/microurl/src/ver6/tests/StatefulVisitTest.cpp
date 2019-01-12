@@ -12,7 +12,7 @@ struct UrlFrequencyVisitor
 		m_freq[info.OriginalUrl]++;
 	}
 
-	std::string MostPopular()
+	std::string MostPopular() const
 	{
 		ptrdiff_t freq = 0;
 		auto maxElemIt = begin(m_freq);
@@ -27,7 +27,7 @@ struct UrlFrequencyVisitor
 		return end(m_freq) != maxElemIt ? maxElemIt->first : std::string{};
 	}
 
-	ptrdiff_t StartingWith(std::string_view sv)
+	ptrdiff_t StartingWith(std::string_view sv) const
 	{
 		auto beginPrefix = m_freq.lower_bound(sv);
 		auto endPrefix = end(m_freq);
