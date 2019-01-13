@@ -105,9 +105,12 @@ Generally, we never work explicitly with lifetime code but we use general-purpos
 
 Such proxies (or give them another name you like) have some well-known lifetime semantics, that is generally tied with *copy* and *move* operators. For example, `std::vector` can be fully copied into another instance. On the other hand, `std::thread` cannot be copied but only moved because the ownership of threads is *unique*.
 
-Applying the rule of zero is like a quest for *liberation*: we make our business-code classes free from any ownership responsibility. So the question is: how do we handle dynamic resources without explicit constructs?
+Applying the rule of zero is like a quest for *liberation*: we make our business-code classes free from any ownership responsibility. 
+Bruce Lee was used to say "it is not daily increase but daily decrease, hack away the unessential". The Rule of Zero shows that we can hack away the unessential (and complicated) aspect of ownership from our business-code classes.
 
-For the rest of this section, we'll learn how to use standard general-purpose tools for dynamic lifetime management that will help adopt the rule of zero.
+So the question is: how do we handle dynamic resources without explicit constructs?
+
+We have two options: we use general-purpose standard tools or we roll our own. Clearly, the former is preferred on the latter.
 
 ## A glimpse of Smart Pointers
 
