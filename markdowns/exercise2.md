@@ -70,9 +70,22 @@ public:
 
 As you learned from the previous section, declaring a `default`ed virtual destructor is a violation of the **rule of zero** since `Interface` does not deal with ownership. This is one rare exception - `shared_ptr` may help here (read on).
 
-Actually, since C++11, the generation of the implicitly-defined copy constructor is deprecated if a class a user-defined destructor or user-defined copy assignment operator. So relying on an implicitly generated copy operation in a class with a destructor is *deprecated*.
+Actually, according to the language rules, declaring (even `=default`) a virtual destructor prevents move operators from being automatically generated and *deprecates* the generation of copy operators. This should not be a problem for interfaces because they **should never** contain any data:
 
-For this reason, even though it's probably paranoia, the most futurable way to declare an interface in C++ consists in `=default`-ing all the special operators:
+```cpp
+class Derived : public Interface
+{
+    void func() override;
+    
+    std::vector<State> m_spam; // data in derived class
+};
+
+Derived d1;
+// this copies the *base* part and moves m_spam
+auto d2 = move(d1);
+```
+
+The code above relies on a deprecated thing, that is the generation of copy operators. This should not be a problem but for max paranoia, the most futurable way to declare an interface in C++ consists in `=default`-ing all the special operators:
 
 ```cpp
 class Interface
@@ -90,30 +103,11 @@ public:
 
 This is commonly called (defaulted) **Rule of Five**.
 
-### Rule of Five, slices and clones
+### Slices and clones
 
-This section does not really concern interfaces but only *stateful* polymorphic bases.
+Just for completeness, we mention another possible issue.
 
-As we said, according to the language rules, declaring a virtual destructor prevents move operators from being automatically generated and deprecates the generation of copy operators. This should not be a problem for interfaces because they **should never** contain any data, even though we should not rely on copies because they are deprecated. For instance:
-
-```cpp
-class Derived : public Interface
-{
-    void func() override;
-    
-    std::vector<State> m_spam; // data in derived class
-};
-
-Derived d1;
-// this copies the *base* part and moves m_spam
-auto d2 = move(d1);
-```
-
-In general, for (stateful) polymorphic bases, this can be an issue so we can apply the rule of five.
-
-There is now another potential issue.
-
-If any polymorphic class declared with the rule of five is accidentally passed *by value*, *slicing* happens: only the base portion of a derived object will be copied, and the polymorphic behavior will be corrupted.
+If any copyable polymorphic class (interfaces are in this family) is accidentally passed *by value*, *slicing* happens: only the base portion of a derived object will be copied, and the polymorphic behavior will be corrupted.
 
 ```cpp
 class Derived : public Interface
@@ -162,6 +156,19 @@ f(d);
 It's clearly a tradeoff because the code above makes derived instances not **copyable** nor **movable**.
 
 However, for making deep copies of polymorphic classes we *prefer* a virtual `clone` function instead of copy construction/assignment. Continue reading the guideline [C.130](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rh-copy) for more details.
+
+The discussion can go on a bit more, because some other alternative exists.
+
+In general, an acceptable compromise to create interfaces consists in simply declare a virtual `=default` destructor:
+
+```cpp
+class Interface
+{
+public:
+    virtual ~Interface() = default;
+    //...functions...
+};
+```
 
 Continue Reading:
 
