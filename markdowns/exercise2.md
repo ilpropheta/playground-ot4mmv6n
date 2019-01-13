@@ -181,40 +181,6 @@ Continue Reading:
 * [C.21: If you define or =delete any default operation, define or =delete them all](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rc-five)
 * [C.67: A polymorphic class should suppress copying](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rc-copy-virtual)
 
-### `shared_ptr` does some magic
-
-We realized that declaring any destructor - whether public virtual or protected non-virtual - will violate the rule of zero. 
-
-Is there any way to both obey the rule of zero and avoid undefined behavior?
-
-There is but it's really fragile because it relies on how our interface will be used.
-
-Consider this base class:
-
-```cpp
-class Animal
-{
-public:    
-    virtual void move() = 0;
-    //...
-};
-```
-
-This works as you expect and it is not affected by UB:
-
-```cpp
-shared_ptr<Animal> obj { new Dog() };
-```
-
-When `shared_ptr<Animal>` is constructed, its constructor deduces `Dog` and it builds a *deleter* which knows which destructor should be called. The contraption used internally si called **type erasure** and it's a **generic programming** technique. It's beyond the scope of the workshop. 
-
-Type erasure introduces some cost, which is why `unique_ptr` that does not provide such "magic" deletion.
-
-Continue Reading:
-
-* [Enforcing the Rule of Zero](https://accu.org/var/uploads/journals/Overload120.pdf)
-* [Ponder the use of unique_ptr to enforce the Rule of Zero](https://marcoarena.wordpress.com/2014/04/12/ponder-the-use-of-unique_ptr-to-enforce-the-rule-of-zero/)
-
 ### Enforce overriden functions with `override`
 
 Since C++11, we can enforce that a derived class overrides a base function by using `override`:
@@ -282,3 +248,37 @@ Let's go:
 	 "microurl/src/ver3/MicroUrlService.cpp",
 	],
 	"command": "sh /project/target/run_test.sh ver3"})
+	
+### Bonus: `shared_ptr` does some magic
+
+We realized that declaring any destructor - whether public virtual or protected non-virtual - will violate the rule of zero. 
+
+Is there any way to both obey the rule of zero and avoid undefined behavior?
+
+There is but it's really fragile because it relies on how our interface will be used.
+
+Consider this base class:
+
+```cpp
+class Animal
+{
+public:    
+    virtual void move() = 0;
+    //...
+};
+```
+
+This works as you expect and it is not affected by UB:
+
+```cpp
+shared_ptr<Animal> obj { new Dog() };
+```
+
+When `shared_ptr<Animal>` is constructed, its constructor deduces `Dog` and it builds a *deleter* which knows which destructor should be called. The contraption used internally si called **type erasure** and it's a **generic programming** technique. It's beyond the scope of the workshop. 
+
+Type erasure introduces some cost, which is why `unique_ptr` that does not provide such "magic" deletion.
+
+Continue Reading:
+
+* [Enforcing the Rule of Zero](https://accu.org/var/uploads/journals/Overload120.pdf)
+* [Ponder the use of unique_ptr to enforce the Rule of Zero](https://marcoarena.wordpress.com/2014/04/12/ponder-the-use-of-unique_ptr-to-enforce-the-rule-of-zero/)
