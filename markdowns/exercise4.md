@@ -14,7 +14,7 @@ An instance of the `string_view` class can be thought of as a "view" into an exi
 
 `string_view` has implicit conversion constructors from both `const char*` and `const string&`, and since `string_view` doesn’t copy, there is no O(n) memory penalty for making a hidden copy. In the case where a `const string&` is passed, the constructor runs in O(1) time. In the case where a `const char*` is passed, the constructor invokes a `strlen()` automatically (or you can use the two-parameter `string_view` constructor).
 
-`string_view` describes the minimum common interface necessary to read string data. It's a return to the basic essence of a *string* as a sequence of characters. It doesn’t require that the data be null-terminated, and doesn’t place any restrictions on the data’s lifetime. This gives you type erasure for "free", as a function accepting a `string_view` can be made to work with any string-like type, without making the function into a template, or constraining the interface of that function to a particular subset of string types.
+`string_view` describes the minimum common interface necessary to read string data. It's a return to the **basic essence** of a *string* as a sequence of characters. It doesn’t require that the data be null-terminated, and doesn’t place any restrictions on the data’s lifetime. This gives you type erasure for "free", as a function accepting a `string_view` can be made to work with any string-like type, without making the function into a template, or constraining the interface of that function to a particular subset of string types.
 
 `string_view`'s interface recalls `const string`'s. For example:
 
