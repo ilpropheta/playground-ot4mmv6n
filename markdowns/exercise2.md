@@ -70,7 +70,9 @@ public:
 
 As you learned from the previous section, declaring a `default`ed virtual destructor is a violation of the **rule of zero** since `Interface` does not deal with ownership. This is one rare exception - `shared_ptr` may help here (read on).
 
-Actually, according to the language rules, declaring (even `=default`) a virtual destructor prevents move operators from being automatically generated and *deprecates* the generation of copy operators. This should not be a problem for interfaces because they **should never** contain any data:
+### Adapting to changes
+
+From C++11, declaring (even `=default`) a virtual destructor prevents move operators from being automatically generated and *deprecates* the generation of copy operators. This should not be a problem for interfaces because they **should never** contain any data:
 
 ```cpp
 class Derived : public Interface
@@ -85,7 +87,9 @@ Derived d1;
 auto d2 = move(d1);
 ```
 
-The code above relies on a deprecated thing, that is the generation of copy operators. This should not be a problem but for max paranoia, the most futurable way to declare an interface in C++ consists in `=default`-ing all the special operators:
+However, the code above relies on a deprecated thing: generation of copy operators. We should be ready to adapt in case deprecation turns into actual removal.
+
+So we can say the most futurable way to declare an interface in C++ consists in `=default`-ing all the special operators:
 
 ```cpp
 class Interface
@@ -103,11 +107,13 @@ public:
 
 This is commonly called (defaulted) **Rule of Five**.
 
+By the way, it's very unlikely that this deprecation will ever turn into reality.
+
 ### Slices and clones
 
-Just for completeness, we mention another possible issue.
+Just for completeness, we shortly describe another issue.
 
-If any copyable polymorphic class (interfaces are in this family) is accidentally passed *by value*, *slicing* happens: only the base portion of a derived object will be copied, and the polymorphic behavior will be corrupted.
+If any copyable polymorphic class is accidentally passed *by value*, *slicing* happens: only the base portion of a derived object will be copied, and the polymorphic behavior will be corrupted.
 
 ```cpp
 class Derived : public Interface
@@ -159,7 +165,7 @@ However, for making deep copies of polymorphic classes we *prefer* a virtual `cl
 
 The discussion can go on a bit more, because some other alternative exists.
 
-In general, an acceptable compromise to create interfaces consists in simply declare a virtual `=default` destructor:
+As said, the acceptable compromise to create interfaces consists in simply declare a virtual `=default` destructor:
 
 ```cpp
 class Interface
