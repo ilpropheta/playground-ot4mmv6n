@@ -41,7 +41,7 @@ As in life, what works now might not work for us forever, and it's important to 
 
 Clearly **we have very good and wise idioms**. Thus many times our decisions are seamless, like being in "autopilot mode". The more we *practice*, the more fluent we are. Some concepts we have met today have been growing up in the C++ ecosystem for decades. Yet some people do not know them. Don't join such group of people.
 
-Whenever new tools are merged into the standard, we have an opportunity to ditch our own implementations of the same concepts and constructs. **Adding enables removing** as Kate Gregory once said. This requires a *vigilant and responsible approach*. Time spent for **removing unnecessary things** and for **simplifying** is always worth.
+Whenever new tools are merged into the standard, we have an opportunity to ditch our own implementations of the same concepts and constructs. **Adding enables removing** as Kate Gregory once said. This requires a *vigilant and responsible approach*. Time spent for **removing unnecessary things** and for **simplifying** is always worth. Bruce Lee was used to say "it is not daily increase but daily decrease, hack away the unessential".
 
 Other concepts are more new and debatable, those require balancing compromises and often imply to commit to a certain style. For instance, `std::optional`, that has been in the industry (and in many other languages) for many years is a competitor of other styles and ways to handle errors. What is better? Sometimes the answer *depends on* the context. We should be **open** to *take in consideration* new styles, idioms and tools. As Bruce Lee was used to summarize his [Jeet Kune Do](https://en.wikipedia.org/wiki/Jeet_Kune_Do):
 
