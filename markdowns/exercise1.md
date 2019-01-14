@@ -182,40 +182,6 @@ shared_ptr<Resource> owner1 = Acquire();
 
 Smart pointers are general-purpose tools. If they do not fit your scenario, write your own! **You have control** to do it. But remember to be "responsible"!
 
-## Scope Guard
-
-We conclude this section by recalling a classic idiom that is a general-purpose *finalizer*: an operation always executed at the end of the scope.
-
-The idea is to have a handy class providing a customizable destructor and that can be created inline.
-
-With the advent of lambdas - that we'll see later - and C++17 automatic deduction of class templates this has been dramatically simplified:
-
-```cpp
-template<typename F>
-struct finalize : F
-{
-    finalize(F f) : F(f) {}
-
-    ~finalize()
-    {
-        F::operator()();
-    }
-};
-
-// business code:
-
-{
-	finalize f{[]{cout << "hello"; }};
-	// some code
-	// ...
-} // "hello" printed here
-
-```
-
-Although this is a trivial implementation ([see a possible issue here](https://github.com/Microsoft/GSL/issues/283)), it's acceptable in lots of real scenarios.
-
-As for lambdas, this idiom is useful when you need **anonymous** and disposable finalization code.
-
 Continue Reading:
 
 * [Microsoft on Smart Pointers](https://msdn.microsoft.com/en-us/library/hh279674.aspx)
@@ -280,3 +246,39 @@ Continue reading:
 
 * [Incomplete types and `shared_ptr` / `unique_ptr`](https://howardhinnant.github.io/incomplete.html)
 * [How to implement the pimpl idiom by using unique_ptr](https://www.fluentcpp.com/2017/09/22/make-pimpl-using-unique_ptr/)
+
+## Bonus: Finalizers
+
+We conclude this section by recalling a classic idiom that is a general-purpose *finalizer*: an operation always executed at the end of the scope. Traditionally, this is called **Scope Guard** and has been provided by several libraries during the last years (e.g. boost).
+
+The idea is to have a handy class providing a customizable destructor and that can be created inline.
+
+With the advent of lambdas - that we'll see later - and C++17 automatic deduction of class templates this has been dramatically simplified:
+
+```cpp
+template<typename F>
+struct finalize : F
+{
+    finalize(F f) : F(f) {}
+
+    ~finalize()
+    {
+        F::operator()();
+    }
+};
+
+// business code:
+
+{
+	finalize f{[]{cout << "hello"; }};
+	// some code
+	// ...
+} // "hello" printed here
+
+```
+
+Although this is a trivial implementation ([see a possible issue here](https://github.com/Microsoft/GSL/issues/283)), it's acceptable in lots of real scenarios.
+
+As for lambdas, this idiom is useful when you need **anonymous** and disposable finalization code.
+
+Even more flexible implementations allow to "deactivate" the execution of the lambda.
