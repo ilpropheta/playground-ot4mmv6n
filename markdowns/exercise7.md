@@ -2,7 +2,7 @@
 
 ![Congratulations!](https://upload.wikimedia.org/wikipedia/it/thumb/4/46/Dicapriogatsby.JPG/1200px-Dicapriogatsby.JPG)
 
-You have done a great job! I hope you have enjoyed the workshop.
+You have done a great job! I hope you have enjoyed the session.
 
 ## Recap
 
@@ -17,11 +17,9 @@ Let's recap the topics we have met so far:
 * the introduction of **lambdas** revolutionized how we write code; 
 * we have many ways for handling errors in C++ (and, generally, in programming). `std::optional` is a "monadic" way for encapsulating errors and missing values. It's a *vocabulary type*, meaning that it's the default way to express *nullable value semantics*.
 
-The best is yet to come: you should delve into the topics you liked the most and practice a bit more.
-
 > Only a sith lord deals in absolutes
 
-After this workshop I hope you have understood my point: **C++ is not about a single paradigm**. C++ does not have strict style rules either. This is both good and bad ("a great C++ comes with great responsibility"). You can just try narrowing down the range of alternatives with openness to new tools and with balancing compromises. As Bruce Lee was used to say: *the best fighter is someone who can adapt on any style*, we can reshape as *the best C++ programmer is someone who can adapt on any style*. 
+I hope you have got my point: **C++ is not about a single paradigm**. C++ does not have strict style rules either. This is both good and bad ("a great C++ comes with great responsibility"). You can just try narrowing down the range of alternatives with openness to new tools and with balancing compromises. As Bruce Lee was used to say: *the best fighter is someone who can adapt on any style*, we can reshape as *the best C++ programmer is someone who can adapt on any style*. 
 
 ## The best C++ programmer can adapt on any style
 
