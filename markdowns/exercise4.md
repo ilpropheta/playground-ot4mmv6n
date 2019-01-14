@@ -4,7 +4,7 @@
 
 *Bruce Lee* about his experience with strings in C++.
 
-(joke inspired by Bruce Lee's "Three stages of cultivation").
+(joke inspired by Bruce Lee's [Three stages of cultivation](https://www.brucelee.com/podcast-blog/2017/6/21/51-the-three-stages)).
 
 ## `std::string_view` in a nutshell
 
