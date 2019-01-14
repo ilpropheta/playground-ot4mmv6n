@@ -2,27 +2,25 @@
 
 ## Welcome!
 
-Welcome to my workshop "The best C++ programmer can adapt on any style", hosted by [tech.io](https://tech.io)!
+Welcome to my interactive session "The best C++ programmer can adapt on any style", hosted by [tech.io](https://tech.io)!
 
-This playground is an interactive environment where you can face with challenges directly on your browser.
-
-This workshop is an improvement version of my [previous one](https://tech.io/playgrounds/098a2aa83ce82c5ad96efacc3ba2734b02122/).
+This playground is an interactive environment where you can face with challenges directly on the browser.
 
 ## Introduction
 
-![Congratulations!](https://raw.githubusercontent.com/ilpropheta/playground-ot4mmv6n/master/bruce-lee-quote.png)
-
-I think that if *Bruce Lee* was alive, he would have loved C++!
+![The best fighter is not a Boxer, Karate or Judo man. The best fighter is someone who can adapt on any style](https://raw.githubusercontent.com/ilpropheta/playground-ot4mmv6n/master/bruce-lee-quote.png)
 
 Bruce Lee was used to say:
 
 > The best fighter is not a Boxer, Karate or Judo man. The best fighter is someone who can adapt on any style.
 
+I think that if *Bruce Lee* was alive, he would have loved C++!
+
 Bruce Lee's quote has two meanings: first of all, Bruce Lee could **not accept to obey to a single discipline or style** because any discipline or teaching is "conclusive" - all the answers have been already answered. What works for you can work differently for me. You should always *express yourself* and for this reason you should not limit yourself into a single doctrine. That's why for Bruce Lee was natural just to mix several styles and arts into his own *expression of the human body*. For instance, did you know that Bruce Lee was a professional dancer?
 
 C++ implements this idea very well, since it is **independent from any particular programming paradigm or style**. You can design object oriented applications with a bit of functional touch, crunch data from hardware very quickly through C-like interfaces, craft sophisticated generic libraries, make compile-time code generators, and so on. That's good and bad...[😈](https://www.reddit.com/r/cpp/comments/ae60nb/decades_have_passed_standard_c_has_no_agreed_and/).
 
-The second aspect of his quote is about **adaptability**: for Bruce Lee, life is a constant process of changing. What works now might not work forever. If you do not adapt to change, you are going to have troubles. Bruce Lee represented this concept in his famous fighting with *Chuck Norris* at the Colosseum (*The Way of the Dragon*): Chuck Norris was winning the match so Bruce Lee adapted to the style of his opponent and changed something in his movements. Chuck did not and for this reason he died.
+The second aspect of his quote is about **adaptability**: for Bruce Lee, life is constantly changing. What works now might not work forever. If you do not adapt to change, you are going to have troubles. Bruce Lee represented this concept in his famous fighting with *Chuck Norris* at the Colosseum (*The Way of the Dragon*): Chuck Norris was winning the match so Bruce Lee adapted to the style of his opponent and changed something in his movements. Chuck did not and for this reason he died.
 
 C++ grows very quickly. New tools and concepts are merged into the standard once every 3 years now. This requires a *vigilant* approach to C++ development. First of all, classic idioms and language mechanics might change. You should be ready to handle such changes. 
 Even though you decide to ignore langauge and library additions, other people might not. If you get involved in projects with such people, the knowledge of the new will be mandatory.
