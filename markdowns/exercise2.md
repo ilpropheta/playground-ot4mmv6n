@@ -109,78 +109,6 @@ This is commonly called (defaulted) **Rule of Five**.
 
 By the way, it's very unlikely that this deprecation will ever turn into reality.
 
-### Slices and clones
-
-Just for completeness, we shortly describe another issue.
-
-If any copyable polymorphic class is accidentally passed *by value*, *slicing* happens: only the base portion of a derived object will be copied, and the polymorphic behavior will be corrupted.
-
-```cpp
-class Derived : public Interface
-{
-public:
-    void func() override;
-    // ...
-};
-
-void f(Interface& b) 
-{
-    auto b2 = b; // slicing
-}
-
-Derived d;
-f(d);
-```
-
-For this reason, many people prefer `=delete`-ing special operators of base classes:
-
-```cpp
-class Interface 
-{ 
-public:
-    Interface() = default;
-    
-    virtual ~Interface() = default;
-    Interface(const Interface&) = delete;
-    Interface& operator=(const Interface&) = delete;
-    Interface(Interface&&) = delete;
-    Interface& operator=(Interface&&) = delete;
-    
-    virtual void func() = 0;
-    // ...
-};
-
-void f(Interface& b) 
-{
-    auto b2 = b; // does not compile
-}
-
-Derived d;
-f(d);
-```
-
-It's clearly a tradeoff because the code above makes derived instances not **copyable** nor **movable**.
-
-However, for making deep copies of polymorphic classes we *prefer* a virtual `clone` function instead of copy construction/assignment. Continue reading the guideline [C.130](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rh-copy) for more details.
-
-The discussion can go on a bit more, because some other alternative exists.
-
-As said, the acceptable compromise to create interfaces consists in simply declare a virtual `=default` destructor:
-
-```cpp
-class Interface
-{
-public:
-    virtual ~Interface() = default;
-    //...functions...
-};
-```
-
-Continue Reading:
-
-* [C.21: If you define or =delete any default operation, define or =delete them all](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rc-five)
-* [C.67: A polymorphic class should suppress copying](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rc-copy-virtual)
-
 ### Enforce overriden functions with `override`
 
 Since C++11, we can enforce that a derived class overrides a base function by using `override`:
@@ -282,3 +210,64 @@ Continue Reading:
 
 * [Enforcing the Rule of Zero](https://accu.org/var/uploads/journals/Overload120.pdf)
 * [Ponder the use of unique_ptr to enforce the Rule of Zero](https://marcoarena.wordpress.com/2014/04/12/ponder-the-use-of-unique_ptr-to-enforce-the-rule-of-zero/)
+
+### Bonus: Slices and clones
+
+Let's quickly see another issue around this polymorphic area.
+
+If any copyable polymorphic class is accidentally passed *by value*, *slicing* happens: only the base portion of a derived object will be copied, and the polymorphic behavior will be corrupted.
+
+```cpp
+class Derived : public Interface
+{
+public:
+    void func() override;
+    // ...
+};
+
+void f(Interface& b) 
+{
+    auto b2 = b; // slicing
+}
+
+Derived d;
+f(d);
+```
+
+For this reason, many people prefer `=delete`-ing special operators of base classes:
+
+```cpp
+class Interface 
+{ 
+public:
+    Interface() = default;
+    
+    virtual ~Interface() = default;
+    Interface(const Interface&) = delete;
+    Interface& operator=(const Interface&) = delete;
+    Interface(Interface&&) = delete;
+    Interface& operator=(Interface&&) = delete;
+    
+    virtual void func() = 0;
+    // ...
+};
+
+void f(Interface& b) 
+{
+    auto b2 = b; // does not compile
+}
+
+Derived d;
+f(d);
+```
+
+It's clearly a tradeoff because the code above makes derived instances not **copyable** nor **movable**.
+
+However, for making deep copies of polymorphic classes we *prefer* a virtual `clone` function instead of copy construction/assignment. Continue reading the guideline [C.130](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rh-copy) for more details.
+
+The discussion can go on a bit more, because some other alternative exists.
+
+Continue Reading:
+
+* [C.21: If you define or =delete any default operation, define or =delete them all](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rc-five)
+* [C.67: A polymorphic class should suppress copying](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rc-copy-virtual)
