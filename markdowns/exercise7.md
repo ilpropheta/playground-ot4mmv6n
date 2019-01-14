@@ -29,7 +29,7 @@ First of all, we *express our own C++ style* by mixing idioms and paradigms. We 
 
 Second, we are ready to adapt to different scenarios and use-cases. We have enough freedom and control. 
 
-Moreover, adaptability is about how our approach to C++: we can reject certain idioms and tools, but we should know how they work. We need a *vigilant approach*. Otherwise, we'll have troubles in the future when we'll meet them in action or when they twist the meaning of what we already know. This is probably a simple point that holds in any discipline. It's just worth reiterating it. Don't die like Chuck Norris at the Colosseum!
+Moreover, adaptability is about how we approach to C++: we can reject certain idioms and tools, but we should know how they work. We need a *vigilant approach*. Otherwise, we'll have troubles in the future when we'll meet them in action or when they twist the meaning of what we already know. This is probably a simple point that holds in any discipline. It's just worth reiterating it. Don't die like Chuck Norris at the Colosseum!
 
 About *adaptability*, Bruce Lee advocated the idea of "being fluid and flexible like water". You probably know his famous expression "be water my friend". This idea comes from [Taoism](https://en.wikipedia.org/wiki/Taoism):
 
