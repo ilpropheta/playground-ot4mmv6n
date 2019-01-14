@@ -22,11 +22,11 @@ Bruce Lee advocated the idea of "being fluid and flexible like water". You proba
 
 As in life, what works now might not work for us forever, and it's important to have awareness to change and grow.
 
-Clearly **we have very mature and wise idioms**. Thus many times our decisions are seamless, like being in "autopilot mode". The more we *practice*, the more fluent we are. Some concepts we have met today have been growing up in the C++ ecosystem for decades. Yet some people do not know them. Don't join such group of people.
+Clearly **we have very mature and wise idioms**. Thus many times our decisions are seamless, like being in "autopilot mode". The more we *practice*, the more fluent we become.
 
 Whenever new tools and concepts are merged into the standard, we also have an opportunity to ditch our own implementations of the same things. **Adding enables removing** as Kate Gregory once said. Time spent for **removing unnecessary things** and for **simplifying** is always worth. Bruce Lee was used to say "it is not daily increase but daily decrease, hack away the unessential". In C++, this is not only about removing complexity - like applying *the Rule of Zero* - but also about embracing new abstractions which enable us to return to the essence of basic concepts - like `string_view`.
 
-On the other hand, we have more debatable things and additions, those require harder thinking and decisions. For instance, choosing to handle errors with `std::optional` is not so obvious compared to other ways. Which is better? Sometimes the answer just *depends on* the context. We should be **open** to take in consideration the *new*.
+On the other hand, we have more debatable things and additions, those require harder thinking and decisions. For instance, choosing to handle errors with `std::optional` is not so obvious compared to the other ways. Which is better? Sometimes the answer just *depends on* the context. We should be **open** to take in consideration the *new*. We should not be *closed* because we are confident with our experience. Our experience is good but is limited.
 
 To conclude, it's all about a *personal search* - where "personal" can be refer to your company, team or whatever, if you want to apply it more pragmatically to professional C++ development. As Bruce Lee was used to summarize his [Jeet Kune Do](https://en.wikipedia.org/wiki/Jeet_Kune_Do):
 
