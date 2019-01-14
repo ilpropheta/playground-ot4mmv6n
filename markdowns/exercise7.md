@@ -6,6 +6,8 @@ You have done a great job! I hope you have enjoyed the session.
 
 ## Recap
 
+We have 
+
 Let's recap the topics we have met so far:
 
 * **RAII** is probably the most important idiom in C++ and **smart pointers** are general-purpose tools implementing such an idiom
@@ -25,25 +27,27 @@ I hope you have got my point: **C++ is not about a single paradigm**. C++ does n
 
 In my opinion, "adapting on any style" in C++ has two meanings. 
 
-First of all, we *express our own C++ style* by mixing idioms and paradigms. We are not tied with any specific paradigm. We are not afraid of using together concepts diametrically opposed to one another. We should do it responsibly though.
+First of all, we *express our own C++ style* by mixing idioms and paradigms. We are not tied with any specific paradigm. We are not afraid of using together concepts diametrically opposed to one another. We should do it responsibly though. **We** here is not limited to you. Can be your team, your company, or whatever. During the workshop, we have mixed together some concepts coming from Object Oriented, Functional and Generic Programming.
 
-Second, we are ready to adapt to different scenarios and use-cases. We have enough freedom and control. 
+Second one is *Adaptability*. We should be ready to *adapt* to different scenarios and use-cases. We do not have strict and universal guidelines to follow. Many times we should just swing and balance competing tradeoffs. We have enough freedom and control. 
 
-Moreover, adaptability is about how we approach to C++: we can reject certain idioms and tools, but we should know how they work. We need a *vigilant approach*. Otherwise, we'll have troubles in the future when we'll meet them in action or when they twist the meaning of what we already know. This is probably a simple point that holds in any discipline. It's just worth reiterating it. Don't die like Chuck Norris at the Colosseum!
+It's also about how we approach to the C++ growth: we should know how new things work and their impact on the current state of the art - like we did by reviewing the classic idiom to make an *interface*. We need a *vigilant approach*. 
 
-About *adaptability*, Bruce Lee advocated the idea of "being fluid and flexible like water". You probably know his famous expression "be water my friend". This idea comes from [Taoism](https://en.wikipedia.org/wiki/Taoism):
+If we decide not to learn how new things work, we'll have troubles when they will show up - if we change team or company, for instance. Don't die like Chuck Norris at the Colosseum!
+
+Bruce Lee advocated the idea of "being fluid and flexible like water". You probably know his famous expression "be water my friend". This idea comes from [Taoism](https://en.wikipedia.org/wiki/Taoism):
 
 > Water is fluid, soft, and yielding. But water will wear away rock, which is rigid and cannot yield. As a rule, whatever is fluid, soft, and yielding will overcome whatever is rigid and hard. This is another paradox: what is soft is strong - Lao Tzu
 
 As in life, what works now might not work for us forever, and it's important to have awareness to change and grow.
 
-**Adapting in C++ is mandatory**. We do not have strict and universal guidelines to follow. Many times we should just swing and balance competing tradeoffs.
+Clearly **we have very mature and wise idioms**. Thus many times our decisions are seamless, like being in "autopilot mode". The more we *practice*, the more fluent we are. Some concepts we have met today have been growing up in the C++ ecosystem for decades. Yet some people do not know them. Don't join such group of people.
 
-Clearly **we have very good and wise idioms**. Thus many times our decisions are seamless, like being in "autopilot mode". The more we *practice*, the more fluent we are. Some concepts we have met today have been growing up in the C++ ecosystem for decades. Yet some people do not know them. Don't join such group of people.
+Whenever new tools and concepts are merged into the standard, we also have an opportunity to ditch our own implementations of the same things. **Adding enables removing** as Kate Gregory once said. Time spent for **removing unnecessary things** and for **simplifying** is always worth. Bruce Lee was used to say "it is not daily increase but daily decrease, hack away the unessential". In C++, this is not only about removing complexity - like applying *the Rule of Zero* - but also about embracing new abstractions which enable us to return to the essence of basic concepts - like `string_view`.
 
-Whenever new tools are merged into the standard, we have an opportunity to ditch our own implementations of the same concepts and constructs. **Adding enables removing** as Kate Gregory once said. This requires a *vigilant and responsible approach*. Time spent for **removing unnecessary things** and for **simplifying** is always worth. Bruce Lee was used to say "it is not daily increase but daily decrease, hack away the unessential".
+On the other hand, we have more debatable things and additions, those require harder thinking and decisions. For instance, choosing to handle errors with `std::optional` is not so obvious compared to other ways. Which is better? Sometimes the answer just *depends on* the context. We should be **open** to take in consideration the *new*.
 
-Other concepts are more new and debatable, those require balancing compromises and often imply to commit to a certain style. For instance, `std::optional`, that has been in the industry (and in many other languages) for many years is a competitor of other styles and ways to handle errors. What is better? Sometimes the answer *depends on* the context. We should be **open** to *take in consideration* new styles, idioms and tools. As Bruce Lee was used to summarize his [Jeet Kune Do](https://en.wikipedia.org/wiki/Jeet_Kune_Do):
+To conclude, it's all about a *personal search* - where "personal" can be refer to your company, team or whatever, if you want to apply it more pragmatically to professional C++ development. As Bruce Lee was used to summarize his [Jeet Kune Do](https://en.wikipedia.org/wiki/Jeet_Kune_Do):
 
 ```
 Research your own experience.
