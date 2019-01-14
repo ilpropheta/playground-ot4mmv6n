@@ -4,25 +4,6 @@
 
 You have done a great job! I hope you have enjoyed the session.
 
-## Recap
-
-We have 
-
-Let's recap the topics we have met so far:
-
-* **RAII** is probably the most important idiom in C++ and **smart pointers** are general-purpose tools implementing such an idiom
-   * the general rule is: don't let plain pointers own resources;
-* **Interfaces** are powerful building blocks of object oriented programming. Although the support for interfaces in C++ is not as explicit as in other languages, you should learn the idioms to build them correctly and safely;
-* **Generic Programming** is a fundamental paradigms in C++, enabled by **templates** and used to generate code at compile-time;
-* **tuples** are useful to manipulate structured data under a generic and common interface;
-* `std::string_view` is a powerful tool for **referencing** any char sequence as an immutable `std::string`. It open doors to new styles of programming (cf. [.net core's Span and Memory](https://medium.com/@antao.almada/how-to-use-span-t-and-memory-t-c0b126aae652));
-* the introduction of **lambdas** revolutionized how we write code; 
-* we have many ways for handling errors in C++ (and, generally, in programming). `std::optional` is a "monadic" way for encapsulating errors and missing values. It's a *vocabulary type*, meaning that it's the default way to express *nullable value semantics*.
-
-> Only a sith lord deals in absolutes
-
-I hope you have got my point: **C++ is not about a single paradigm**. C++ does not have strict style rules either. This is both good and bad ("a great C++ comes with great responsibility"). You can just try narrowing down the range of alternatives with openness to new tools and with balancing compromises. As Bruce Lee was used to say: *the best fighter is someone who can adapt on any style*, we can reshape as *the best C++ programmer is someone who can adapt on any style*. 
-
 ## The best C++ programmer can adapt on any style
 
 In my opinion, "adapting on any style" in C++ has two meanings. 
