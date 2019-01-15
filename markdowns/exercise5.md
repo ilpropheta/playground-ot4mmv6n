@@ -256,6 +256,8 @@ void MyAlgo(std::function<int(int, int)> lam);
 
 The snippet above will print `empty`.
 
+C++20 adds even more stuff to lambdas. Have a look at [this video](https://www.youtube.com/watch?v=JxYD8_OHQg8) for a quick intro.
+
 Continue Reading:
 
 * Up to C++11 but a very good start: [Lambda Functions in C++11 - the Definitive Guide](https://www.cprogramming.com/c++11/c++11-lambda-closures.html)
